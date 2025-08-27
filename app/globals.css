@@ -1,25 +1,317 @@
+/* Font faces */
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-Thin.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-ThinItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-ThinItalic.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-ExtraLight.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-ExtraLightItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-Light.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-LightItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-Regular.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-Regular.woff") format("woff"),
+    url("/fonts/Avita/Avita.woff2") format("woff2"),
+    url("/fonts/Avita/Avita.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-Italic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-Medium.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-MediumItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-SemiBold.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-SemiBoldItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-Bold.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-BoldItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-ExtraBold.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-ExtraBoldItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-Black.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avita";
+  src: url("/fonts/Avita/Avita-BlackItalic.woff2") format("woff2"),
+    url("/fonts/Avita/Avita-BlackItalic.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvitaRounded";
+  src: url("/fonts/Avita/AvitaRounded.woff2") format("woff2"),
+    url("/fonts/Avita/AvitaRounded.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "AvitaRounded";
+  src: url("/fonts/Avita/AvitaRounded-Black.woff2") format("woff2"),
+    url("/fonts/Avita/AvitaRounded-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-Thin.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-ExtraLight.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-Light.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-Regular.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-Medium.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-SemiBold.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-Bold.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url("/fonts/Sora/Sora-ExtraBold.woff2") format("woff2"),
+    url("/fonts/Sora/Sora-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  overscroll-behavior: contain;
+}
+
+/* Custom neon silver scrollbar */
+/* WebKit (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+  width: 1px;
+  height: 1px;
+}
+
+/* Hide scrollbar buttons/arrows (all variants) */
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button:single-button,
+*::-webkit-scrollbar-button:start:decrement,
+*::-webkit-scrollbar-button:end:increment,
+*::-webkit-scrollbar-button:vertical:increment,
+*::-webkit-scrollbar-button:vertical:decrement,
+*::-webkit-scrollbar-button:horizontal:increment,
+*::-webkit-scrollbar-button:horizontal:decrement {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+@keyframes silverSweep {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 200%;
+  }
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(80, 80, 80, 0.4) 0%,
+    #f0f0f0 8%,
+    #ffffff 14%,
+    #e3e3e3 22%,
+    rgba(255, 255, 255, 0.75) 34%,
+    rgba(80, 80, 80, 0) 60%
+  );
+  background-size: 100% 200%;
+  animation: silverSweep 1.8s linear infinite;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.9),
+    0 0 8px rgba(192, 192, 192, 0.9) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 18px rgba(255, 255, 255, 1),
+    0 0 10px rgba(200, 200, 200, 1) inset,
+    0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin; /* Firefox cannot go below 'thin' */
+  scrollbar-color: #e3e3e3 #000000; /* thumb, track */
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Sora", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +327,14 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Headings use Avita */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8 {
+  font-family: "Avita", Arial, Helvetica, sans-serif;
 }

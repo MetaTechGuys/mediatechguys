@@ -6,20 +6,25 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "patch": "npm version patch --no-git-tag-version && npm run postinstall && git add . && npx cross-var git commit -m \" v$npm_package_version\" && git push",
+    "minor": "npm version minor --no-git-tag-version && npm run postinstall && git add . && npx cross-var git commit -m \" v$npm_package_version\" && git push",
+    "major": "npm version major --no-git-tag-version && npm run postinstall && git add . && npx cross-var git commit -m \" v$npm_package_version\" && git push",
+    "postinstall": "node scripts/write-version.js"
   },
   "dependencies": {
+    "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "sass": "^1.91.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "typescript": "^5"
   }
 }
