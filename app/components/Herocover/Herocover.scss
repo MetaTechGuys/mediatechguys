@@ -32,14 +32,17 @@
 }
 
 .herocover__text {
+  margin: auto;
   position: absolute;
   left: 50%;
-  bottom: 0%;
+  bottom: 4%;
   transform: translateX(-50%);
   text-align: center;
   color: #000;
-  width: 100%;
-  padding: 2px 0px;
+  // width: 100%;
+  padding: 8px 14px;
+  background: rgba(240, 240, 240, 0.48);
+  backdrop-filter: blur(20px);
 }
 
 .herocover__title {
