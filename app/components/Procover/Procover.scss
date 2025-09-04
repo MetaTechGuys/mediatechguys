@@ -44,7 +44,7 @@
 }
 
 .procover__title {
-  font-size: clamp(28px, 3.5vw, 56px);
+  font-size: clamp(28px, 3.5vw, 48px);
   line-height: 1.1;
   font-weight: 800;
   margin: 0 0 6px 0;
@@ -87,30 +87,30 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .procover__title {
-    font-size: clamp(24px, 4.2vw, 44px);
+    font-size: clamp(24px, 4.8vw, 28px);
   }
   .procover__subtitle {
-    font-size: clamp(24px, 2vw, 24px);
+    font-size: clamp(14px, 2.8vw, 18px);
     letter-spacing: 1.2px;
   }
   .procover__button {
-    font-size: clamp(14px, 1.8vw, 16px);
-    padding: 10px 20px;
+    font-size: clamp(12px, 2vw, 14px);
+    padding: 8px 14px;
   }
 }
 
 /* Mobile */
 @media (max-width: 820px) {
   .procover__title {
-    font-size: clamp(20px, 6.2vw, 34px);
+    font-size: clamp(18px, 8vw, 24px);
   }
   .procover__subtitle {
-    font-size: clamp(14px, 3.6vw, 20px);
+    font-size: clamp(12px, 8vw, 14px);
     letter-spacing: 1.1px;
   }
   .procover__button {
-    font-size: clamp(12px, 2.2vw, 14px);
-    padding: 8px 16px;
+    font-size: clamp(10px, 2.8vw, 12px);
+    padding: 6px 14px;
   }
 }
 
@@ -119,6 +119,9 @@
   .procover {
     min-height: 40vh;
   }
+  .procover__text {
+    padding: 8px 8px;
+  }
   .procover__image {
     min-height: 40vh;
     img {
@@ -126,15 +129,16 @@
     }
   }
   .procover__title {
-    font-size: clamp(18px, 7vw, 28px);
+    font-size: clamp(14px, 8vw, 18px);
   }
   .procover__subtitle {
-    font-size: clamp(12px, 4vw, 14px);
+    font-size: clamp(10px, 4.8vw, 12px);
     letter-spacing: 1px;
+    margin: 0 0 8px 0;
   }
   .procover__button {
-    font-size: clamp(10px, 2.8vw, 12px);
-    padding: 6px 12px;
+    font-size: clamp(8px, 2.8vw, 10px);
+    padding: 4px 8px;
   }
 }
 /* Smaller Mobile */
@@ -142,6 +146,9 @@
   .procover {
     min-height: 40vh;
   }
+  .procover__text {
+    padding: 8px 8px;
+  }
   .procover__image {
     min-height: 40vh;
     img {
@@ -149,14 +156,15 @@
     }
   }
   .procover__title {
-    font-size: clamp(18px, 7vw, 28px);
+    font-size: clamp(12px, 8vw, 14px);
   }
   .procover__subtitle {
-    font-size: clamp(10px, 4vw, 12px);
+    font-size: clamp(8px, 4vw, 10px);
     letter-spacing: 1px;
+    margin: 0 0 8px 0;
   }
   .procover__button {
-    font-size: clamp(8px, 2.4vw, 10px);
-    padding: 5px 10px;
+    font-size: clamp(6px, 2.4vw, 8px);
+    padding: 4px 8px;
   }
 }

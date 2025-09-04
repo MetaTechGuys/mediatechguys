@@ -6,17 +6,17 @@ export default function Home() {
   return (
     <div>
       <Herocover
-        src="/images/MTG.sitebanner.v1.01.00.1404.06.05-03.webp"
+        src="/images/MTG-03.webp"
         alt="Hero cover"
         title=""
         subtitle="Start your Digital Marketing with us!"
         priority
       />
       <Procover
-        src="/images/MTG-01.webp"
+        src="/images/MTG-07.webp"
         alt="Richmind cover"
         title="RichMind Holding"
-        subtitle="Future of Digital Marketing"
+        subtitle="Future of Business"
         priority
         button={{
           text: "Explore More",
