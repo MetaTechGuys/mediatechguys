@@ -1,0 +1,81 @@
+.doublerm {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  &-inner {
+    position: relative;
+    display: flex;
+    height: 100%;
+  }
+
+  &-panel {
+    position: relative;
+    flex: 1 1 50%;
+    transition: flex-basis 400ms ease, transform 400ms ease;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      flex-basis: 65%;
+    }
+  }
+
+  &-left {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &-right {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &-img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &-label {
+    position: absolute;
+    left: 1.5rem;
+    // bottom: 1.5rem;
+    z-index: 2;
+    color: #fff;
+    font-weight: 600;
+    // background: rgba(0, 0, 0, 0.4);
+    // padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+  }
+  &-label.lleft {
+    left: auto;
+    top: 0rem;
+    font-size: 168px;
+    letter-spacing: 1rem;
+    color: #c99500;
+    background: rgba(240, 240, 240, 0.4);
+    backdrop-filter: blur(10px);
+  }
+  &-label.lright {
+    right: auto;
+    top: 44rem;
+    font-size: 160px;
+    letter-spacing: 1rem;
+    color: #c99500;
+    background: rgba(240, 240, 240, 0.4);
+    backdrop-filter: blur(20px);
+  }
+  // On container hover, shrink non-hovered panel
+  &-inner:hover .doublerm-panel:not(:hover) {
+    flex-basis: 35%;
+  }
+
+  @media (max-width: 768px) {
+    height: 60vh;
+    &-panel:hover {
+      flex-basis: 60%;
+    }
+    &-inner:hover .doublerm-panel:not(:hover) {
+      flex-basis: 40%;
+    }
+  }
+}

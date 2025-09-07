@@ -56,10 +56,32 @@ export default function Home() {
         }}
       />
       <Procover
+        src="/images/MTG-06.webp"
+        alt="CryptoLand cover"
+        title="Crypto Land"
+        subtitle="A Gate to the Future World"
+        priority
+        button={{
+          text: "Explore More",
+          href: "/projects",
+        }}
+      />
+      <Procover
         src="/images/MTG-08.webp"
         alt="HighEnd cover"
         title="HighEnd Resturant"
         subtitle="A Delicious Memory"
+        priority
+        button={{
+          text: "Explore More",
+          href: "/projects",
+        }}
+      />
+      <Procover
+        src="/images/MTG.sitebanner.v1.03.00.1404.06.13-09.webp"
+        alt="Cando cover"
+        title="Cando Resturant"
+        subtitle="A Delicious Experience"
         priority
         button={{
           text: "Explore More",
