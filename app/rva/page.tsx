@@ -55,37 +55,37 @@ export default function RvaPage() {
   const videos: VidrvaVideo[] = [
     {
       id: 1,
-      src: "/videos/rva-intro.mp4",
+      src: "/videos/RVA.Characters.V1.0.01.1404.webm",
       poster: slides[0].src,
       title: slides[0].title,
     },
     {
       id: 2,
-      src: "/videos/marketing-showcase.mp4",
+      src: "/videos/RVA.Coming soon.V1.0.01.1404.05.webm",
       poster: slides[1].src,
       title: slides[1].title,
     },
     {
       id: 3,
-      src: "/videos/capital-address.mp4",
+      src: "/videos/RVA.Future city.V1.0.01.1404.06.webm",
       poster: slides[2].src,
       title: slides[2].title,
     },
     {
       id: 4,
-      src: "/videos/architecture-demo.mp4",
+      src: "/videos/RVA.Transparency.V1.0.02.1404.02.webm",
       poster: slides[3].src,
       title: slides[3].title,
     },
     {
       id: 5,
-      src: "/videos/business-overview.mp4",
+      src: "/videos/RVA.Security.V1.0.01.1404.02.webm",
       poster: slides[4].src,
       title: slides[4].title,
     },
     {
       id: 6,
-      src: "/videos/highend.mp4",
+      src: "/videos/RVA.Tokenize.V1.0.02.1404.04.webm",
       poster: slides[5].src,
       title: slides[5].title,
     },
