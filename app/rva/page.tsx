@@ -104,13 +104,16 @@ export default function RvaPage() {
 
   // Listen to slide clicks from Rvavid and map to video selection
   useEffect(() => {
-    const listener = (e: any) => {
+    const listener = (e: CustomEvent<{ index: number }>) => {
       const idx = e?.detail?.index ?? 0;
       handleSlideClick(idx);
     };
-    window.addEventListener("rvavid:slideClick", listener as any);
+    window.addEventListener("rvavid:slideClick", listener as EventListener);
     return () =>
-      window.removeEventListener("rvavid:slideClick", listener as any);
+      window.removeEventListener(
+        "rvavid:slideClick",
+        listener as EventListener
+      );
   }, []);
 
   return (
