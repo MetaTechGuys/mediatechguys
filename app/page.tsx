@@ -56,6 +56,18 @@ export default function Home() {
           href: "/projects"
         }}
       />
+      <Procover
+        src="/images/MTG-08.webp"
+        alt="HighEnd cover"
+        title="HighEnd Resturant"
+        subtitle="A Delicious Memory"
+        priority
+        button={{
+          text: "Explore More",
+          href: "/projects"
+        }}
+      />
+      
     </div>
   );
 }
