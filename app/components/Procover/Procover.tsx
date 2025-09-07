@@ -56,7 +56,7 @@ const Procover = ({
           height={intrinsicHeight}
           sizes="100vw"
           priority={priority}
-          style={{ width: "100vw", height: "auto" }}
+          style={{ width: "100%", height: "auto" }}
         />
       </div>
       <div className="procover__overlay" />

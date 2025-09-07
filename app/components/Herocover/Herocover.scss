@@ -19,7 +19,7 @@
   display: block;
   width: 100%;
   height: auto;
-  object-fit: cover;
+  // object-fit: cover;
   max-height: 100vh;
   object-position: center;
 }
@@ -73,6 +73,33 @@
 
 /* Mobile */
 @media (max-width: 820px) {
+  .herocover{
+    height: 39vh;
+}
+.herocover__image{
+    height: 38vh;
+    img{
+        min-height: 38vh;
+    }
+}
+  .herocover__title {
+    font-size: clamp(20px, 6.2vw, 34px);
+  }
+  .herocover__subtitle {
+    font-size: clamp(14px, 3.6vw, 20px);
+    letter-spacing: 1.1px;
+  }
+}
+@media (max-width: 768px) {
+  .herocover{
+    height: 40vh;
+}
+.herocover__image{
+    height: 38vh;
+    img{
+        min-height: 38vh;
+    }
+}
   .herocover__title {
     font-size: clamp(20px, 6.2vw, 34px);
   }
@@ -85,38 +112,38 @@
 /* Small Mobile */
 @media (max-width: 480px) {
     .herocover{
-        min-height: 40vh;
+        height: 25vh;
+    }
+    .herocover__text {
+      padding: 4px 4px;
     }
     .herocover__image{
-        min-height: 40vh;
+        height: 24vh;
         img{
-            min-height: 40vh;
+            min-height: 24vh;
         }
     }
   .herocover__title {
-    font-size: clamp(18px, 7vw, 28px);
+    font-size: clamp(14px, 7vw, 20px);
   }
   .herocover__subtitle {
-    font-size: clamp(12px, 4vw, 14px);
+    font-size: clamp(8px, 4vw, 10px);
     letter-spacing: 1px;
   }
 }
 /* Smaller Mobile */
 @media (max-width: 360px) {
     .herocover{
-        min-height: 40vh;
+        min-height: 31vh;
     }
-    .herocover__image{
-        min-height: 40vh;
-        img{
-            min-height: 40vh;
-        }
+    .herocover__text {
+      padding: 4px 4px;
     }
   .herocover__title {
     font-size: clamp(18px, 7vw, 28px);
   }
   .herocover__subtitle {
-    font-size: clamp(10px, 4vw, 12px);
+    font-size: clamp(6px, 4vw, 8px);
     letter-spacing: 1px;
   }
 }
