@@ -1,4 +1,3 @@
-
 import Herocover from "./components/Herocover/Herocover";
 import Procover from "./components/Procover/Procover";
 
@@ -20,7 +19,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects"
+          href: "/projects",
         }}
       />
       <Procover
@@ -31,7 +30,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects"
+          href: "/projects",
         }}
       />
       <Procover
@@ -42,7 +41,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects"
+          href: "/projects",
         }}
       />
       <Procover
@@ -53,7 +52,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects"
+          href: "/projects",
         }}
       />
       <Procover
@@ -64,10 +63,9 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects"
+          href: "/projects",
         }}
       />
-      
     </div>
   );
 }
