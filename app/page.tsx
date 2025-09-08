@@ -19,7 +19,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects",
+          href: "/richmind",
         }}
       />
       <Procover
@@ -30,7 +30,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects",
+          href: "/rva",
         }}
       />
       <Procover
@@ -41,7 +41,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects",
+          href: "/capitaladdressgroup",
         }}
       />
       <Procover
@@ -52,7 +52,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects",
+          href: "/asarsazan",
         }}
       />
       <Procover
@@ -63,7 +63,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects",
+          href: "/cryptoland",
         }}
       />
       <Procover
@@ -74,7 +74,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects",
+          href: "/highend",
         }}
       />
       <Procover
@@ -85,7 +85,7 @@ export default function Home() {
         priority
         button={{
           text: "Explore More",
-          href: "/projects",
+          href: "/cando",
         }}
       />
     </div>

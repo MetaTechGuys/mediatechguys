@@ -37,7 +37,7 @@
 
   &-label {
     position: absolute;
-    left: 1.5rem;
+    // left: 1.5rem;
     // bottom: 1.5rem;
     z-index: 2;
     color: #fff;
@@ -49,17 +49,17 @@
   &-label.lleft {
     left: auto;
     top: 0rem;
-    font-size: 168px;
-    letter-spacing: 1rem;
+    font-size: 212px;
+    // letter-spacing: 1rem;
     color: #c99500;
     background: rgba(240, 240, 240, 0.4);
     backdrop-filter: blur(10px);
   }
   &-label.lright {
     right: auto;
-    top: 44rem;
-    font-size: 160px;
-    letter-spacing: 1rem;
+    top: 46rem;
+    font-size: 200px;
+    // letter-spacing: 1rem;
     color: #c99500;
     background: rgba(240, 240, 240, 0.4);
     backdrop-filter: blur(20px);

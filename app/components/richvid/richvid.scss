@@ -1,0 +1,115 @@
+.richvid {
+  padding: 4rem 0;
+  background: #ffffff;
+
+  .richvid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .richvid-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .richvid-title {
+    font-family: "Avita", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #171717;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+  }
+
+  .richvid-description {
+    font-family: "Sora", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #4a4a4a;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .richvid-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    background: #000000;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 56.25%; // 16:9 aspect ratio
+    }
+  }
+
+  .richvid-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    outline: none;
+  }
+
+  // Responsive adjustments
+  @media (max-width: 1024px) {
+    padding: 3rem 0;
+
+    .richvid-title {
+      font-size: 2rem;
+    }
+
+    .richvid-description {
+      font-size: 1rem;
+    }
+
+    .richvid-header {
+      margin-bottom: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+
+    .richvid-container {
+      padding: 0 1rem;
+    }
+
+    .richvid-title {
+      font-size: 1.75rem;
+    }
+
+    .richvid-description {
+      font-size: 0.9rem;
+    }
+
+    .richvid-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .richvid-video-wrapper {
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .richvid-title {
+      font-size: 1.5rem;
+    }
+
+    .richvid-description {
+      font-size: 0.85rem;
+    }
+  }
+}
