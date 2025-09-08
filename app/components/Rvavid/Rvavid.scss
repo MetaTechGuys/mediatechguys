@@ -32,7 +32,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     // align-items: center;
-    min-height: 200vh;
+    // min-height: 200vh;
     border-left: 1px solid #646464;
     border-right: 1px solid #646464;
 
@@ -156,7 +156,7 @@
 
   &-slider {
     position: relative;
-    height: 220vh;
+    // height: ;
     // overflow: visible;
     margin: 40% 0;
     @media (max-width: 1024px) {
@@ -206,7 +206,7 @@
     position: relative;
     width: 100%;
     // aspect-ratio: 16 / 9;
-    height: 40vh;
+    height: 36vh;
     border-radius: 16px;
     // overflow: hidden;
     // transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -217,7 +217,7 @@
     transform: rotate(var(--rv-rot)) scale(1) translateX(0);
     will-change: transform;
     z-index: 1;
-    margin-top: -0.2rem;
+    margin-top: -0.4rem;
 
     &:first-child {
       margin-top: 2rem;
@@ -250,13 +250,13 @@
       transform: translateX(80%);
       transition: transform 400ms ease, opacity 400ms ease;
       z-index: 2;
-      width: 50%;
+      width: 55%;
     }
 
     &.active {
       animation: none;
       z-index: 8;
-      transform: rotate(0deg) scale(1.2) translateX(-48px);
+      transform: rotate(0deg) scale(1.48) translateX(-48px);
       transition: transform 480ms cubic-bezier(0.4, 0, 0.2, 1);
 
       .rvavid-layer-bottom {

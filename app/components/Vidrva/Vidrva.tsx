@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Vidrva.scss";
 
 export interface VidrvaVideo {
@@ -23,6 +23,9 @@ const Vidrva: React.FC<VidrvaProps> = ({
 }) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [isLoaded, setIsLoaded] = useState<boolean[]>(() =>
+    Array(videos.length).fill(false)
+  );
 
   useEffect(() => {
     // Pause all other videos when activeIndex changes
@@ -36,6 +39,28 @@ const Vidrva: React.FC<VidrvaProps> = ({
       } catch {}
     });
   }, [activeIndex]);
+
+  const handlePlay = (idx: number) => {
+    if (!isLoaded[idx]) {
+      setIsLoaded((prev) => {
+        const next = [...prev];
+        next[idx] = true;
+        return next;
+      });
+      // Wait for src to be applied, then play
+      requestAnimationFrame(() => {
+        const el = videoRefs.current[idx];
+        try {
+          el?.load();
+          el?.play();
+        } catch {}
+      });
+    } else {
+      try {
+        videoRefs.current[idx]?.play();
+      } catch {}
+    }
+  };
 
   return (
     <section id={sectionId} ref={sectionRef} className="vidrva">
@@ -53,13 +78,30 @@ const Vidrva: React.FC<VidrvaProps> = ({
                   videoRefs.current[idx] = el;
                 }}
                 className="vidrva-video"
-                controls
+                controls={isLoaded[idx]}
                 playsInline
+                preload="none"
                 poster={v.poster}
+                src={isLoaded[idx] ? v.src : undefined}
+                onPlay={() => {
+                  // If user presses the native play button before we set src
+                  if (!isLoaded[idx]) {
+                    handlePlay(idx);
+                  }
+                }}
               >
-                <source src={v.src} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+              {!isLoaded[idx] && (
+                <button
+                  type="button"
+                  className="vidrva-playButton"
+                  aria-label={`Play ${v.title ?? "video"}`}
+                  onClick={() => handlePlay(idx)}
+                >
+                  ▶
+                </button>
+              )}
             </div>
             {v.title && <h3 className="vidrva-title">{v.title}</h3>}
           </div>

@@ -1,19 +1,17 @@
 .vidrva {
   /* Ensure there's room to align at top when scrolled into view */
-//   scroll-margin-top: 200px;
+  //   scroll-margin-top: 200px;
   min-height: 100vh;
   padding: 0;
   //   background: #0a0a0a;
   color: #fff;
-  
-
 
   &-container {
     max-width: 1400px;
     margin: 0rem auto;
     padding: 4rem 1rem;
-    border-left:1px solid #646464 ;
-  border-right:1px solid #646464 ;
+    border-left: 1px solid #646464;
+    border-right: 1px solid #646464;
   }
 
   &-item {
@@ -32,7 +30,6 @@
     border-radius: 12px;
     overflow: hidden;
     margin: auto;
-
   }
 
   &-poster {
@@ -54,7 +51,6 @@
     background: rgba(0, 0, 0, 0.6);
     padding: 12px 18px;
     border-radius: 50%;
-    
   }
 
   &-open {
@@ -64,7 +60,6 @@
     padding: 0;
     width: 100%;
     cursor: pointer;
-
   }
 
   &-video {
@@ -74,6 +69,31 @@
     height: 100%;
     object-fit: cover;
     background: #000;
+  }
+
+  &-playButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+    font-size: 32px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  &-playButton:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%) scale(1.05);
   }
 
   &-title {
