@@ -124,9 +124,14 @@ const Rcover = (props: RcoverProps) => {
       // else: allow default to bubble so page can scroll
     };
     const node = containerRef.current;
-    if (node) node.addEventListener("wheel", onWheel, { passive: false });
+    if (node)
+      node.addEventListener(
+        "wheel",
+        onWheel as EventListener,
+        { passive: false } as AddEventListenerOptions
+      );
     return () => {
-      if (node) node.removeEventListener("wheel", onWheel as any);
+      if (node) node.removeEventListener("wheel", onWheel as EventListener);
     };
   }, [goNext, goPrev, activeIndex, computedSlides.length]);
 
@@ -157,11 +162,19 @@ const Rcover = (props: RcoverProps) => {
       // reset start so next gesture can be detected
       touchStartYRef.current = null;
     };
-    node.addEventListener("touchstart", onTouchStart, { passive: true });
-    node.addEventListener("touchmove", onTouchMove, { passive: false });
+    node.addEventListener(
+      "touchstart",
+      onTouchStart as EventListener,
+      { passive: true } as AddEventListenerOptions
+    );
+    node.addEventListener(
+      "touchmove",
+      onTouchMove as EventListener,
+      { passive: false } as AddEventListenerOptions
+    );
     return () => {
-      node.removeEventListener("touchstart", onTouchStart as any);
-      node.removeEventListener("touchmove", onTouchMove as any);
+      node.removeEventListener("touchstart", onTouchStart as EventListener);
+      node.removeEventListener("touchmove", onTouchMove as EventListener);
     };
   }, [goNext, goPrev, activeIndex, computedSlides.length]);
 

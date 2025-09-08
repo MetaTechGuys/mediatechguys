@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Capcover.scss";
 
 type OverlayImage = {
@@ -37,7 +37,7 @@ export default function Capcover({
   const resumeTimer = useRef<number | null>(null);
 
   const total = slides.length;
-  const current = useMemo(() => slides[index % total], [slides, index, total]);
+  // const current = useMemo(() => slides[index % total], [slides, index, total]);
 
   const clearAnimTimers = () => {
     animTimers.current.forEach((t) => window.clearTimeout(t));
@@ -130,10 +130,15 @@ export default function Capcover({
                       animStep >= step ? " in" : ""
                     }`}
                   >
-                    <img
+                    <Image
                       src={ov.src}
                       alt={ov.alt || `overlay ${step}`}
                       className={`overlay-img ${ov.className || ""}`}
+                      // fill
+                      width={100}
+                      height={100}
+                      sizes="100vw"
+                      priority={i === index}
                     />
                   </div>
                 );
