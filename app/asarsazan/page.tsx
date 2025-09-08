@@ -7,7 +7,7 @@ export default function AsarsazanPage() {
       <Asarcover
         leftSrc="/images/1-02.webp"
         rightSrc="/images/1-01.webp"
-        leftText="Asar Sazan Properties"
+        leftText="Asar Sazan"
         leftAlt="Asar Sazan Left"
         rightAlt="Asar Sazan Right"
       />

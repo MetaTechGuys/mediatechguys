@@ -3,16 +3,24 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
 }
 
 .rcover__top {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 22;
+  /* animate from bottom when slide becomes active */
+  transform: translateY(80%);
+  opacity: 0;
+  transition: transform 800ms ease, opacity 800ms ease;
+
 }
 
 .rcover__topImage {
   object-fit: cover;
+
 }
 
 .rcover__content {
@@ -38,4 +46,136 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
   }
+}
+
+/* --- Vertical slider extensions --- */
+.rcover__track {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  transition: transform 600ms ease;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 100vh;
+}
+
+.rcover__slide {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* when slide index is active, reveal its top layer */
+.rcover__slide:nth-child(n) + .is-active ~ .rcover__top,
+.rcover__slide .is-active ~ .rcover__top,
+.rcover__slide .is-active + .rcover__top {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.rcover__top {
+  position: absolute;
+  inset: 0;
+  z-index: 22;
+
+}
+
+.rcover__topImage {
+  object-fit: cover;
+}
+
+.rcover__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.rcover__content--split {
+  grid-template-columns: 1fr 1fr;
+}
+
+.rcover__imagePane {
+  position: relative;
+}
+
+.rcover__contentImage {
+  object-fit: cover;
+}
+
+.rcover__textPane {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  //   justify-content: center;
+  padding: 4vw 12vw;
+  color: #111;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(6px);
+  /* start hidden above, reveal when active */
+  transform: translateY(80%);
+  opacity: 0;
+  transition: transform 1400ms ease, opacity 1400ms ease;
+}
+
+.rcover__title {
+  font-size: clamp(24px, 4vw, 56px);
+  margin: 0 0 8px 0;
+}
+.rcover__subtitle {
+  font-size: clamp(16px, 2.2vw, 28px);
+  margin: 0 0 12px 0;
+}
+.rcover__description {
+  font-size: clamp(14px, 1.4vw, 18px);
+  margin: 0;
+}
+
+.rcover__nav {
+  position: absolute;
+  right: 28px;
+  bottom: 28px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rcover__navBtn {
+  appearance: none;
+  border: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, opacity 160ms ease;
+}
+
+.rcover__navBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.rcover__navBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+@media (max-width: 820px) {
+  .rcover__content,
+  .rcover__content--split {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+/* When slide becomes active, reveal text pane */
+.rcover__slide .is-active ~ .rcover__content .rcover__textPane {
+  transform: translateY(0);
+  opacity: 1;
 }
