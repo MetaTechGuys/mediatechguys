@@ -14,12 +14,14 @@ interface VidrvaProps {
   videos: VidrvaVideo[];
   activeIndex: number;
   sectionId?: string;
+  onVideoChange?: (index: number) => void;
 }
 
 const Vidrva: React.FC<VidrvaProps> = ({
   videos,
   activeIndex,
   sectionId = "vidrva-section",
+  onVideoChange,
 }) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
@@ -39,6 +41,32 @@ const Vidrva: React.FC<VidrvaProps> = ({
       } catch {}
     });
   }, [activeIndex]);
+
+  // Listen for slide clicks from Rvavid
+  useEffect(() => {
+    const handleSlideClick = (event: CustomEvent) => {
+      const { index } = event.detail;
+      if (
+        onVideoChange &&
+        typeof index === "number" &&
+        index >= 0 &&
+        index < videos.length
+      ) {
+        onVideoChange(index);
+      }
+    };
+
+    window.addEventListener(
+      "rvavid:slideClick",
+      handleSlideClick as EventListener
+    );
+    return () => {
+      window.removeEventListener(
+        "rvavid:slideClick",
+        handleSlideClick as EventListener
+      );
+    };
+  }, [onVideoChange, videos.length]);
 
   const handlePlay = (idx: number) => {
     if (!isLoaded[idx]) {

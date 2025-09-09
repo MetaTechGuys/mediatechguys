@@ -20,6 +20,9 @@
       display: block;
       animation: fadeIn 300ms ease;
     }
+    &.hidden {
+      display: none;
+    }
   }
 
   &-aspect {

@@ -15,12 +15,10 @@
   transform: translateY(80%);
   opacity: 0;
   transition: transform 800ms ease, opacity 800ms ease;
-
 }
 
 .rcover__topImage {
   object-fit: cover;
-
 }
 
 .rcover__content {
@@ -77,7 +75,6 @@
   position: absolute;
   inset: 0;
   z-index: 22;
-
 }
 
 .rcover__topImage {

@@ -50,7 +50,7 @@ const Navbar = () => {
     },
     {
       name: "Services",
-      path: "/services",
+      path: "/about",
       icon: (
         <svg
           width="24"

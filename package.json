@@ -1,6 +1,6 @@
 {
   "name": "mtg",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -13,9 +13,11 @@
     "postinstall": "node scripts/write-version.js"
   },
   "dependencies": {
+    "leaflet": "^1.9.4",
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-leaflet": "^5.0.0",
     "sass": "^1.91.0"
   },
   "devDependencies": {

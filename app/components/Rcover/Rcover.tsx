@@ -82,6 +82,8 @@ const Rcover = (props: RcoverProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const isAnimatingRef = useRef(false);
+  const wheelAccumRef = useRef<number>(0);
+  const wheelTimerRef = useRef<number | null>(null);
   const touchStartYRef = useRef<number | null>(null);
 
   const clampIndex = useCallback(
@@ -110,18 +112,31 @@ const Rcover = (props: RcoverProps) => {
   useEffect(() => {
     const onWheel = (e: WheelEvent) => {
       if (isAnimatingRef.current) return;
-      if (Math.abs(e.deltaY) < 6) return;
+      // Debounce the gesture: accumulate deltas and navigate once when wheel settles
+      const delta = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+      // If we're within bounds where we can navigate, prevent page scroll
       const isAtFirst = activeIndex === 0;
       const isAtLast = activeIndex === computedSlides.length - 1;
-      const scrollingDown = e.deltaY > 0;
-      const canNavigate =
-        (scrollingDown && !isAtLast) || (!scrollingDown && !isAtFirst);
-      if (canNavigate) {
+      const canNavigateDown = !isAtLast;
+      const canNavigateUp = !isAtFirst;
+      if ((delta > 0 && canNavigateDown) || (delta < 0 && canNavigateUp)) {
         e.preventDefault();
-        if (scrollingDown) goNext();
-        else goPrev();
       }
-      // else: allow default to bubble so page can scroll
+      wheelAccumRef.current += delta;
+      if (wheelTimerRef.current) window.clearTimeout(wheelTimerRef.current);
+      wheelTimerRef.current = window.setTimeout(() => {
+        const total = wheelAccumRef.current;
+        wheelAccumRef.current = 0;
+        wheelTimerRef.current = null;
+        const magnitude = Math.abs(total);
+        if (magnitude < 24) return; // ignore tiny gestures
+        const down = total > 0;
+        if (down && canNavigateDown) {
+          goNext();
+        } else if (!down && canNavigateUp) {
+          goPrev();
+        }
+      }, 120);
     };
     const node = containerRef.current;
     if (node)
@@ -132,6 +147,10 @@ const Rcover = (props: RcoverProps) => {
       );
     return () => {
       if (node) node.removeEventListener("wheel", onWheel as EventListener);
+      if (wheelTimerRef.current) {
+        window.clearTimeout(wheelTimerRef.current);
+        wheelTimerRef.current = null;
+      }
     };
   }, [goNext, goPrev, activeIndex, computedSlides.length]);
 

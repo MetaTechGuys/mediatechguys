@@ -34,6 +34,18 @@ const Rvavid: React.FC<RvavidProps> = ({
   const [activeSlide, setActiveSlide] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
+  const scrollToVidrva = () => {
+    try {
+      const el = document.querySelector("section.vidrva");
+      if (el) {
+        (el as HTMLElement).scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    } catch {}
+  };
+
   useEffect(() => {
     if (!sectionRef.current) return;
 
@@ -112,10 +124,25 @@ const Rvavid: React.FC<RvavidProps> = ({
                   index === activeSlide ? "active" : ""
                 }`}
                 onClick={() => {
+                  // Dispatch event with slide index for Vidrva
                   const event = new CustomEvent("rvavid:slideClick", {
                     detail: { index },
                   });
                   window.dispatchEvent(event);
+                  scrollToVidrva();
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View video for ${slide.title}`}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    const event = new CustomEvent("rvavid:slideClick", {
+                      detail: { index },
+                    });
+                    window.dispatchEvent(event);
+                    scrollToVidrva();
+                  }
                 }}
               >
                 <div className="rvavid-layers">

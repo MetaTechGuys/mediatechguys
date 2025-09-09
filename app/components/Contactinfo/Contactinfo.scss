@@ -1,0 +1,141 @@
+.contactinfo {
+  padding: 4rem 0;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  &__header {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  &__title {
+    margin: 0 0 0.25rem 0;
+    font-family: "Avita", sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    color: red;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-family: "Sora", sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    color: #555;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 820px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__imagePane {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 320px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+  }
+
+  &__image {
+    object-fit: cover;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 0.8rem;
+    align-items: start;
+  }
+
+  &__itemLabel {
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: red;
+  }
+
+  &__itemValue {
+    font-family: "Sora", sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #222;
+    word-break: break-word;
+  }
+
+  &__socials {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  &__socialLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    border: 0;
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+      filter: brightness(1.03);
+    }
+  }
+
+  /* Brand backgrounds */
+  .contactinfo__socialLink--instagram {
+    background: radial-gradient(
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+    );
+  }
+  .contactinfo__socialLink--linkedin {
+    background: #0a66c2;
+  }
+  .contactinfo__socialLink--x,
+  .contactinfo__socialLink--twitter {
+    background: #000000;
+  }
+
+  .contactinfo__socialIcon {
+    display: inline-flex;
+  }
+  .contactinfo__socialText {
+    line-height: 1;
+  }
+}
