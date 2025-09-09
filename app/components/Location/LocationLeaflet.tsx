@@ -44,7 +44,6 @@ export default function LocationLeaflet({
   lon,
   label,
   zoom,
-  pinUrl,
   pinSize,
 }: Props) {
   const icon = createSvgPinIcon(pinSize);

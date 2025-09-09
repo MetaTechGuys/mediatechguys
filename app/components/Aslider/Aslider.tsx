@@ -73,7 +73,7 @@ const Aslider: React.FC<AsliderProps> = ({
     <section
       className="aslider"
       aria-roledescription="carousel"
-      style={{ ["--visible" as any]: vis }}
+      style={{ ...({ "--visible": vis } as React.CSSProperties) }}
     >
       <button
         type="button"
