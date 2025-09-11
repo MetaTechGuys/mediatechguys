@@ -69,7 +69,7 @@ export default function AboutPage() {
         videoSrc="/videos/RVA.Future city.V1.0.01.1404.06.webm"
         title="MediaTechGuys"
         description="We build strategic, creative, and technology-driven experiences that grow brands."
-        poster="/images/MTG-07.webp"
+        poster="/images/MTG-03.webp"
         autoplay={true}
         muted={true}
         loop={true}
