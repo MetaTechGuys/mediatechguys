@@ -1,5 +1,31 @@
 .rvavid {
   /* Stacked layout for small screens */
+  
+  min-height: 100vh;
+  //   padding: 4rem 0;
+  background: transparent !important;
+  border-bottom: 1px solid #646464;
+  // overscroll-behavior: contain;
+
+  // Scale animations for active/non-active slides
+  @keyframes rvavid-scale-in {
+    from {
+      transform: rotate(var(--rv-rot, 0deg)) scale(1);
+    }
+    to {
+      transform: rotate(var(--rv-rot, 0deg)) scale(1.1);
+    }
+  }
+
+  @keyframes rvavid-scale-out {
+    from {
+      transform: rotate(var(--rv-rot, 0deg)) scale(1.1);
+    }
+    to {
+      transform: rotate(var(--rv-rot, 0deg)) scale(1);
+    }
+  }
+
   &--stack {
     border-bottom: 1px solid #646464;
   }
@@ -36,30 +62,6 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-  }
-  min-height: 100vh;
-  //   padding: 4rem 0;
-  background: transparent !important;
-  border-bottom: 1px solid #646464;
-  // overscroll-behavior: contain;
-
-  // Scale animations for active/non-active slides
-  @keyframes rvavid-scale-in {
-    from {
-      transform: rotate(var(--rv-rot, 0deg)) scale(1);
-    }
-    to {
-      transform: rotate(var(--rv-rot, 0deg)) scale(1.1);
-    }
-  }
-
-  @keyframes rvavid-scale-out {
-    from {
-      transform: rotate(var(--rv-rot, 0deg)) scale(1.1);
-    }
-    to {
-      transform: rotate(var(--rv-rot, 0deg)) scale(1);
-    }
   }
 
   &-container {

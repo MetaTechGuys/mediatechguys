@@ -51,13 +51,11 @@ const Rvavid: React.FC<RvavidProps> = ({
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(max-width: 1024px)");
-    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
-      // @ts-ignore
+    const handler = (e: MediaQueryListEvent) => {
       setIsStacked(!!e.matches);
     };
     // initial
-    // @ts-ignore
-    handler(mq);
+    setIsStacked(mq.matches);
     try {
       mq.addEventListener(
         "change",
@@ -70,11 +68,17 @@ const Rvavid: React.FC<RvavidProps> = ({
         );
     } catch {
       // Safari fallback
-      // @ts-ignore
-      mq.addListener(handler);
+      const legacyMq = mq as MediaQueryList & {
+        addListener: (
+          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+        ) => void;
+        removeListener: (
+          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+        ) => void;
+      };
+      legacyMq.addListener(handler);
       return () => {
-        // @ts-ignore
-        mq.removeListener(handler);
+        legacyMq.removeListener(handler);
       };
     }
   }, []);

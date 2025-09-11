@@ -1,4 +1,15 @@
 .cform {
+  /* Base declarations first to avoid Sass mixed-decls deprecation */
+  width: 100%;
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 4rem;
+  background: #80808080;
+  border: 1px solid #000;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  font-family: "Sora", sans-serif;
+
   &__header {
     margin-bottom: 2rem;
     text-align: center;
@@ -11,15 +22,6 @@
     color: #808080;
     letter-spacing: 0.04em;
   }
-  width: 100%;
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 4rem;
-  background: #80808080;
-  border: 1px solid #000;
-  border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-  font-family: "Sora", sans-serif;
 
   &__row {
     display: grid;

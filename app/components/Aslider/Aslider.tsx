@@ -32,9 +32,8 @@ const Aslider: React.FC<AsliderProps> = ({
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(max-width: 820px)");
-    const onChange = (e: MediaQueryListEvent | MediaQueryList) => {
+    const onChange = (e: MediaQueryListEvent) => {
       // Support both addEventListener and older addListener types
-      // @ts-ignore
       setIsSmall(e.matches);
     };
     // Initial
@@ -51,11 +50,17 @@ const Aslider: React.FC<AsliderProps> = ({
         );
     } catch {
       // Safari/old
-      // @ts-ignore
-      mq.addListener(onChange);
+      const legacyMq = mq as MediaQueryList & {
+        addListener: (
+          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+        ) => void;
+        removeListener: (
+          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+        ) => void;
+      };
+      legacyMq.addListener(onChange);
       return () => {
-        // @ts-ignore
-        mq.removeListener(onChange);
+        legacyMq.removeListener(onChange);
       };
     }
   }, []);

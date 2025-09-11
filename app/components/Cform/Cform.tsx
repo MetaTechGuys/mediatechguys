@@ -56,8 +56,8 @@ const Cform: React.FC<CformProps> = ({
       setSubject("");
       setMessage("");
       onSuccess?.();
-    } catch (err: any) {
-      const msg = err?.message || "Something went wrong.";
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Something went wrong.";
       setError(msg);
       onError?.(msg);
     } finally {

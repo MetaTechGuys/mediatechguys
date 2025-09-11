@@ -49,13 +49,11 @@ const Clcover: React.FC<ClcoverProps> = ({ slides }) => {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(max-width: 820px)");
-    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
-      // @ts-ignore
+    const handler = (e: MediaQueryListEvent) => {
       setIsVertical(!!e.matches);
     };
-    // initial
-    // @ts-ignore
-    handler(mq);
+    // initial state
+    setIsVertical(mq.matches);
     try {
       mq.addEventListener(
         "change",
@@ -68,11 +66,17 @@ const Clcover: React.FC<ClcoverProps> = ({ slides }) => {
         );
     } catch {
       // Safari fallback
-      // @ts-ignore
-      mq.addListener(handler);
+      const legacyMq = mq as MediaQueryList & {
+        addListener: (
+          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+        ) => void;
+        removeListener: (
+          listener: (this: MediaQueryList, ev: MediaQueryListEvent) => void
+        ) => void;
+      };
+      legacyMq.addListener(handler);
       return () => {
-        // @ts-ignore
-        mq.removeListener(handler);
+        legacyMq.removeListener(handler);
       };
     }
   }, []);
