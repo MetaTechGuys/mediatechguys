@@ -69,13 +69,92 @@
     flex-basis: 35%;
   }
 
-  @media (max-width: 768px) {
+  /* Large tablets */
+  @media (max-width: 1200px) {
+    height: 80vh;
+    &-label.lleft {
+      font-size: 156px;
+      top: 0.5rem;
+    }
+    &-label.lright {
+      font-size: 144px;
+      top: 34rem;
+    }
+  }
+
+  /* Tablets */
+  @media (max-width: 1024px) {
+    height: 70vh;
+    &-label.lleft {
+      font-size: 112px;
+      top: 0.5rem;
+    }
+    &-label.lright {
+      font-size: 100px;
+      top: 26rem;
+    }
+  }
+
+  /* Mobile landscape / small tablets */
+  @media (max-width: 820px) {
     height: 60vh;
     &-panel:hover {
       flex-basis: 60%;
     }
     &-inner:hover .doublerm-panel:not(:hover) {
       flex-basis: 40%;
+    }
+    &-label.lleft {
+      font-size: 84px;
+      top: 0.25rem;
+    }
+    &-label.lright {
+      font-size: 76px;
+      top: 18rem;
+    }
+  }
+
+  /* Phones: stack panels vertically for clarity */
+  @media (max-width: 640px) {
+    height: 90vh;
+    &-inner {
+      flex-direction: column;
+    }
+    &-panel {
+      flex: 1 1 50%;
+    }
+    &-left {
+      border-right: 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    &-right {
+      border-left: 0;
+    }
+    &-panel:hover {
+      flex-basis: 50%;
+    }
+    &-inner:hover .doublerm-panel:not(:hover) {
+      flex-basis: 50%;
+    }
+    &-label.lleft {
+      font-size: 56px;
+      top: 0.25rem;
+    }
+    &-label.lright {
+      font-size: 48px;
+      top: auto;
+      bottom: 1.5rem;
+    }
+  }
+
+  /* Very small phones */
+  @media (max-width: 420px) {
+    height: 80vh;
+    &-label.lleft {
+      font-size: 44px;
+    }
+    &-label.lright {
+      font-size: 40px;
     }
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import ContactFull from "../components/ContactFull/ContactFull";
+import Cform from "../components/Cform/Cform";
 
 export default function ContactPage() {
   return (
@@ -27,8 +28,11 @@ export default function ContactPage() {
           },
           { label: "X (Twitter)", href: "https://twitter.com/mediatechguys" },
         ]}
-        bgImageSrc="/images/contact us-01.webp"
+        bgImageSrc="/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-32.webp"
       />
+      <div style={{ padding: "2rem 1rem" }}>
+        <Cform title="Contact Us" actionUrl="/api/contact" />
+      </div>
     </div>
   );
 }

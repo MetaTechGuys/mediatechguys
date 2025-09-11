@@ -1,6 +1,9 @@
 "use client";
 
 import Aslider, { AsliderItem } from "../components/Aslider/Aslider";
+import Aleft from "../components/Aleft/Aleft";
+import Aright from "../components/Aright/Aright";
+import Richvid from "../components/richvid/richvid";
 
 const team: AsliderItem[] = [
   {
@@ -38,7 +41,8 @@ const team: AsliderItem[] = [
     imageSrc: "/images/7.webp",
     title: "Mona Fazli",
     subtitle: "General Graphist",
-  },{
+  },
+  {
     id: 7,
     imageSrc: "/images/9.webp",
     title: "Maryam Kheirkhah",
@@ -56,12 +60,50 @@ const team: AsliderItem[] = [
     title: "Zahra Mostofian",
     subtitle: "Graphic Atelier Team Leader",
   },
-  
 ];
 
 export default function AboutPage() {
   return (
     <div style={{ padding: "0" }}>
+      <Richvid
+        videoSrc="/videos/RVA.Future city.V1.0.01.1404.06.webm"
+        title="MediaTechGuys"
+        description="We build strategic, creative, and technology-driven experiences that grow brands."
+        poster="/images/MTG-07.webp"
+        autoplay={true}
+        muted={true}
+        loop={true}
+        controls={false}
+        titleColor="#808080"
+      />
+      <Aleft
+        title="About Us"
+        description="MediaTechGuys is an international marketing and consulting agency that operates with a focus on innovation, strategy, and creativity. We help brands in the Middle East and Europe recreate their narrative, optimize their organizational structure, and create a unique experience for their customers. Our philosophy is based on combining marketing knowledge, modern technologies, and human experience design."
+        imageSrc="/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-23.webp"
+        imageAlt="Our mission in action"
+      />
+
+      <Aright
+        title=""
+        description="In our collaboration with clients, we are not just a service provider; we stand alongside them as a strategic partner. From the feasibility study and business plan development stage to visual identity design, brand book, advertising campaigns, and social media management, every step is taken with a long-term and sustainable perspective. Our goal is for each brand to not only be seen but to remain memorable in the audience's mind and heart."
+        imageSrc="/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-30.webp"
+        imageAlt="Our vision for the future"
+      />
+
+      <Aleft
+        title=""
+        description="The MediaTechGuys team consists of multidisciplinary specialists: marketers, designers, strategists, web developers, and content creators who together provide a complete ecosystem of services. We believe that real success lies in the details; that's why we carry out every project with precision, coherence, and commitment to global quality."
+        imageSrc="/images/Generated (3).webp"
+        imageAlt="Our core values"
+      />
+
+      <Aright
+        title=""
+        description="Today, MediaTechGuys is more than a marketing agency; we are a growth platform that helps brands redefine themselves on an international scale. Our mission is to create stories that inspire, values that endure, and identities that align with the future."
+        imageSrc="/images/Generated (2).webp"
+        imageAlt="Our expertise and skills"
+      />
+
       <Aslider items={team} visible={9} />
     </div>
   );

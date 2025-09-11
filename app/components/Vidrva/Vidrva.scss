@@ -5,6 +5,9 @@
   padding: 0;
   //   background: #0a0a0a;
   color: #fff;
+  @media (max-width: 480px) {
+    min-height: auto;
+  }
 
   &-container {
     max-width: 1400px;
@@ -12,6 +15,12 @@
     padding: 4rem 1rem;
     border-left: 1px solid #646464;
     border-right: 1px solid #646464;
+    @media (max-width: 1024px) {
+      padding: 2rem 1rem;
+    }
+    @media (max-width: 768px) {
+      padding: 4rem 0.75rem;
+    }
   }
 
   &-item {
@@ -33,6 +42,17 @@
     border-radius: 12px;
     overflow: hidden;
     margin: auto;
+    @media (max-width: 1200px) {
+      width: 92%;
+    }
+    @media (max-width: 820px) {
+      width: 96%;
+      border-radius: 10px;
+    }
+    @media (max-width: 480px) {
+      width: 100%;
+      border-radius: 8px;
+    }
   }
 
   &-poster {
@@ -92,6 +112,21 @@
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(2px);
     transition: transform 160ms ease, background 160ms ease;
+    @media (max-width: 1024px) {
+      width: 64px;
+      height: 64px;
+      font-size: 28px;
+    }
+    @media (max-width: 768px) {
+      width: 56px;
+      height: 56px;
+      font-size: 26px;
+    }
+    @media (max-width: 480px) {
+      width: 52px;
+      height: 52px;
+      font-size: 24px;
+    }
   }
 
   &-playButton:hover {
@@ -104,6 +139,15 @@
     font-family: "Sora", sans-serif;
     font-weight: 600;
     font-size: 1.1rem;
+    @media (max-width: 1024px) {
+      font-size: 1rem;
+    }
+    @media (max-width: 768px) {
+      font-size: 0.95rem;
+    }
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
+    }
   }
 
   /* Modal */
@@ -126,6 +170,9 @@
     top: 50%;
     transform: translate(-50%, -50%);
     width: min(1000px, 92vw);
+    @media (max-width: 768px) {
+      width: 96vw;
+    }
   }
 
   &-close {
@@ -139,6 +186,9 @@
     cursor: pointer;
     font-weight: 700;
     color: #111;
+    @media (max-width: 768px) {
+      top: -2rem;
+    }
   }
 
   &-aspect-modal {

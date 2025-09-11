@@ -11,6 +11,7 @@ interface RichvidProps {
   muted?: boolean;
   loop?: boolean;
   controls?: boolean;
+  titleColor?: string;
 }
 
 const Richvid: React.FC<RichvidProps> = ({
@@ -22,13 +23,21 @@ const Richvid: React.FC<RichvidProps> = ({
   muted = true,
   loop = false,
   controls = true,
+  titleColor,
 }) => {
   return (
     <section className="richvid">
       <div className="richvid-container">
         {(title || description) && (
           <div className="richvid-header">
-            {title && <h2 className="richvid-title">{title}</h2>}
+            {title && (
+              <h2
+                className="richvid-title"
+                style={titleColor ? { color: titleColor } : undefined}
+              >
+                {title}
+              </h2>
+            )}
             {description && (
               <p className="richvid-description">{description}</p>
             )}

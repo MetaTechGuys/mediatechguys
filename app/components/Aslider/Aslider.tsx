@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import "./Aslider.scss";
 
@@ -27,10 +27,44 @@ const Aslider: React.FC<AsliderProps> = ({
   loop = true,
 }) => {
   const [active, setActive] = useState(0);
+  const [isSmall, setIsSmall] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 820px)");
+    const onChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      // Support both addEventListener and older addListener types
+      // @ts-ignore
+      setIsSmall(e.matches);
+    };
+    // Initial
+    setIsSmall(mq.matches);
+    try {
+      mq.addEventListener(
+        "change",
+        onChange as (e: MediaQueryListEvent) => void
+      );
+      return () =>
+        mq.removeEventListener(
+          "change",
+          onChange as (e: MediaQueryListEvent) => void
+        );
+    } catch {
+      // Safari/old
+      // @ts-ignore
+      mq.addListener(onChange);
+      return () => {
+        // @ts-ignore
+        mq.removeListener(onChange);
+      };
+    }
+  }, []);
 
   const count = items.length;
+  // Responsive target: 3 on small screens, otherwise the provided visible (typically 9)
+  const targetVisible = isSmall ? 3 : visible;
   // Allow up to 9 (or more) visible cards; previously capped at 9
-  const visRaw = clamp(visible, 1, Math.max(1, Math.min(11, count)));
+  const visRaw = clamp(targetVisible, 1, Math.max(1, Math.min(11, count)));
   // Force an odd number of visible items so active can sit exactly in the middle
   const vis = visRaw % 2 === 1 ? visRaw : clamp(visRaw + 1, 1, count);
 

@@ -19,7 +19,7 @@ const createSvgPinIcon = (pinSize?: [number, number]) => {
   const h = Math.round((size * 32) / 24);
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="140" viewBox="0 0 307 421" fill="none">
-<path d="M307 153.5C307 238.276 143.5 420.5 143.5 420.5C143.5 420.5 0 238.276 0 153.5C0 68.7243 68.7243 0 153.5 0C238.276 0 307 68.7243 307 153.5Z" fill="#FF5145"/>
+<path d="M307 153.5C307 238.276 143.5 420.5 143.5 420.5C143.5 420.5 0 238.276 0 153.5C0 68.7243 68.7243 0 153.5 0C238.276 0 307 68.7243 307 153.5Z" fill="#808080"/>
 <path d="M271.5 151.77C271.5 218.044 217.774 271.77 151.5 271.77C85.2258 271.77 31.5 218.044 31.5 151.77C31.5 85.4958 85.2258 31.77 151.5 31.77C217.774 31.77 271.5 85.4958 271.5 151.77Z" fill="url(#pattern0_232_62)"/>
 <defs>
 <pattern id="pattern0_232_62" patternContentUnits="objectBoundingBox" width="1" height="1">

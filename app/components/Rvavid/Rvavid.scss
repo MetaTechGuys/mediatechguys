@@ -1,4 +1,42 @@
 .rvavid {
+  /* Stacked layout for small screens */
+  &--stack {
+    border-bottom: 1px solid #646464;
+  }
+  &-stack {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  &-stackItem {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    border-left: 1px solid #646464;
+    border-right: 1px solid #646464;
+    padding: 1rem 0.5rem;
+  }
+  &-stackText {
+    text-align: left;
+  }
+  &-stackMedia {
+    position: relative;
+  }
+  &-stackImageWrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  }
+  &-stackImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
   min-height: 100vh;
   //   padding: 4rem 0;
   background: transparent !important;

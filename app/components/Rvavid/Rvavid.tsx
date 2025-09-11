@@ -32,6 +32,7 @@ const Rvavid: React.FC<RvavidProps> = ({
   button,
 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [isStacked, setIsStacked] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   const scrollToVidrva = () => {
@@ -45,6 +46,38 @@ const Rvavid: React.FC<RvavidProps> = ({
       }
     } catch {}
   };
+
+  // Detect small screens to switch to stacked layout
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 1024px)");
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+      // @ts-ignore
+      setIsStacked(!!e.matches);
+    };
+    // initial
+    // @ts-ignore
+    handler(mq);
+    try {
+      mq.addEventListener(
+        "change",
+        handler as (e: MediaQueryListEvent) => void
+      );
+      return () =>
+        mq.removeEventListener(
+          "change",
+          handler as (e: MediaQueryListEvent) => void
+        );
+    } catch {
+      // Safari fallback
+      // @ts-ignore
+      mq.addListener(handler);
+      return () => {
+        // @ts-ignore
+        mq.removeListener(handler);
+      };
+    }
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -91,6 +124,65 @@ const Rvavid: React.FC<RvavidProps> = ({
       observer.disconnect();
     };
   }, [slides.length]);
+
+  if (isStacked) {
+    return (
+      <section ref={sectionRef} className="rvavid rvavid--stack">
+        <div className="rvavid-stack">
+          {slides.map((slide, index) => (
+            <div key={slide.id} className="rvavid-stackItem">
+              <div className="rvavid-stackText">
+                <h1 className="rvavid-title">{slide.title || title}</h1>
+                {subtitle && <h2 className="rvavid-subtitle">{subtitle}</h2>}
+                <p className="rvavid-description">
+                  {slide.description || description}
+                </p>
+                {button && (
+                  <a href={button.href} className="rvavid-button">
+                    {button.text}
+                  </a>
+                )}
+              </div>
+              <div
+                className="rvavid-stackMedia"
+                onClick={() => {
+                  const event = new CustomEvent("rvavid:slideClick", {
+                    detail: { index },
+                  });
+                  window.dispatchEvent(event);
+                  scrollToVidrva();
+                }}
+                role="button"
+                tabIndex={0}
+                aria-label={`View video for ${slide.title}`}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    const event = new CustomEvent("rvavid:slideClick", {
+                      detail: { index },
+                    });
+                    window.dispatchEvent(event);
+                    scrollToVidrva();
+                  }
+                }}
+              >
+                <div className="rvavid-stackImageWrap">
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    width={1200}
+                    height={675}
+                    className="rvavid-stackImage"
+                    sizes="100vw"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section ref={sectionRef} className="rvavid">
