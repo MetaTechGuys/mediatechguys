@@ -36,7 +36,7 @@ export default function RichMindPage() {
         ]}
         images={[
           "/images/carsel2-01-01.webp",
-          "/images/MTG.RICHMINDSITEBANNERS.V1.01.00.1404.06-03.webp",
+          "/images/richmindsite-01.webp",
           "/images/carsel-02.webp",
         ]}
         layout="four-row"

@@ -10,7 +10,7 @@ export default function RvaPage() {
   const slides = [
     {
       id: 1,
-      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-01.webp",
+      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-09 (1).webp",
       alt: "Royal Virtual Assets",
       title: "Royal Virtual Assets",
       description:

@@ -1,11 +1,14 @@
 .richtxt {
-  padding: 4rem 0;
+  padding: 0rem 0;
   background: #ffffff;
+  border-bottom: 1px solid #646464;
 
   .richtxt-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 2rem;
+    border-left: 1px solid #646464;
+    border-right: 1px solid #646464;
   }
 
   .richtxt-title {
@@ -141,7 +144,7 @@
   .richtxt-images-row {
     display: grid;
     grid-template-columns: 1fr;
-    margin: 0rem 0;
+    margin: 2rem 0 0 0;
   }
 
   .richtxt-images {
@@ -171,7 +174,7 @@
       animation: fadeInUp 0.8s ease-out forwards;
       animation-play-state: paused;
       margin-top: -40px; // Position middle image slightly higher
-    height: 400px;
+    height: 800px;
     }
 
     &:nth-child(3) {
@@ -292,7 +295,6 @@
 
   .richtxt-row-3 {
     grid-template-columns: 1fr 1fr;
-
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
       gap: 2rem;

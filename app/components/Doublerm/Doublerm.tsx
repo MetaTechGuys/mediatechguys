@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Playfair_Display } from "next/font/google";
 import "./Doublerm.scss";
 
 interface DoublermProps {
@@ -12,12 +11,6 @@ interface DoublermProps {
   leftLabel?: string;
   rightLabel?: string;
 }
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: "swap",
-});
 
 const Doublerm: React.FC<DoublermProps> = ({
   leftSrc,
@@ -80,7 +73,7 @@ const Doublerm: React.FC<DoublermProps> = ({
             className="doublerm-img"
           />
           {leftLabel && (
-            <div className={`doublerm-label lleft ${playfair.className}`}>
+            <div className={`doublerm-label lleft`}>
               {leftLabel}
             </div>
           )}
@@ -103,7 +96,7 @@ const Doublerm: React.FC<DoublermProps> = ({
             className="doublerm-img"
           />
           {rightLabel && (
-            <div className={`doublerm-label lright ${playfair.className}`}>
+            <div className={`doublerm-label lright`}>
               {rightLabel}
             </div>
           )}
