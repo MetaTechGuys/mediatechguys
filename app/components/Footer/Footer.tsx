@@ -88,10 +88,10 @@ const Footer = () => {
               height={450}
               className="logo-image"
             />
-            <h3 className="company-name">Media Tech Guys</h3>
+            <h2 className="company-name">Media Tech Guys</h2>
           </div>
           <div className="social-media">
-            <h4>Follow Us</h4>
+            <h3>Follow Us</h3>
             <div className="social-links">
               {socialMediaLinks.map((social) => (
                 <a
@@ -124,7 +124,7 @@ const Footer = () => {
 
         {/* Right Column - Navigation Links */}
         <div className="footer-column footer-right">
-          <h4>Quick Links</h4>
+          <h3>Quick Links</h3>
           <nav className="footer-nav">
             {footerLinks.map((link) => (
               <Link
