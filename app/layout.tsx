@@ -5,7 +5,8 @@ import Footer from "./components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "MTG - Media Tech Guys",
-  description: "A marketing, content production, creation, and strategy agency that specializes in creating solutions for businesses.",
+  description:
+    "A marketing, content production, creation, and strategy agency that specializes in creating solutions for businesses.",
   icons: {
     icon: "/images/tabicon.webp",
   },

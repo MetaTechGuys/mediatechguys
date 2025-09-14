@@ -9,6 +9,22 @@
     min-height: auto;
   }
 
+  // Custom cursor styles
+  &-custom-cursor {
+    position: fixed;
+    width: 88px;
+    height: 88px;
+    background-image: url("/images/Group (2).webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+    mix-blend-mode: difference;
+  }
+
   &-container {
     max-width: 1400px;
     margin: 0rem auto;
@@ -92,6 +108,7 @@
     height: 100%;
     object-fit: cover;
     background: #000;
+    cursor: none; // Hide default cursor
   }
 
   &-playButton {
@@ -106,7 +123,7 @@
     height: 72px;
     border-radius: 50%;
     border: 0;
-    cursor: pointer;
+    cursor: none; // Hide default cursor
     font-size: 32px;
     color: #fff;
     background: rgba(0, 0, 0, 0.55);

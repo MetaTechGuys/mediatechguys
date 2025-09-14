@@ -33,6 +33,11 @@ const Rvavid: React.FC<RvavidProps> = ({
 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isStacked, setIsStacked] = useState(false);
+  const [customCursor, setCustomCursor] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+  });
   const sectionRef = useRef<HTMLElement>(null);
 
   const scrollToVidrva = () => {
@@ -46,6 +51,34 @@ const Rvavid: React.FC<RvavidProps> = ({
       }
     } catch {}
   };
+
+  // Mouse tracking for custom cursor
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (customCursor.visible) {
+        setCustomCursor((prev) => ({
+          ...prev,
+          x: e.clientX,
+          y: e.clientY,
+        }));
+      }
+    };
+
+    if (customCursor.visible) {
+      document.addEventListener("mousemove", handleMouseMove);
+      return () => document.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [customCursor.visible]);
+
+  // Hide cursor when mouse leaves window
+  useEffect(() => {
+    const handleMouseLeave = () => {
+      setCustomCursor((prev) => ({ ...prev, visible: false }));
+    };
+
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, []);
 
   // Detect small screens to switch to stacked layout
   useEffect(() => {
@@ -132,6 +165,16 @@ const Rvavid: React.FC<RvavidProps> = ({
   if (isStacked) {
     return (
       <section ref={sectionRef} className="rvavid rvavid--stack">
+        {/* Custom Cursor */}
+        {customCursor.visible && (
+          <div
+            className="rvavid-custom-cursor"
+            style={{
+              left: customCursor.x,
+              top: customCursor.y,
+            }}
+          />
+        )}
         <div className="rvavid-stack">
           {slides.map((slide, index) => (
             <div key={slide.id} className="rvavid-stackItem">
@@ -159,6 +202,12 @@ const Rvavid: React.FC<RvavidProps> = ({
                 role="button"
                 tabIndex={0}
                 aria-label={`View video for ${slide.title}`}
+                onMouseEnter={() =>
+                  setCustomCursor((prev) => ({ ...prev, visible: true }))
+                }
+                onMouseLeave={() =>
+                  setCustomCursor((prev) => ({ ...prev, visible: false }))
+                }
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
@@ -190,6 +239,16 @@ const Rvavid: React.FC<RvavidProps> = ({
 
   return (
     <section ref={sectionRef} className="rvavid">
+      {/* Custom Cursor */}
+      {customCursor.visible && (
+        <div
+          className="rvavid-custom-cursor"
+          style={{
+            left: customCursor.x,
+            top: customCursor.y,
+          }}
+        />
+      )}
       <div className="rvavid-container">
         {/* Left Side - Text Content */}
         <div className="rvavid-text">
@@ -230,6 +289,12 @@ const Rvavid: React.FC<RvavidProps> = ({
                 role="button"
                 tabIndex={0}
                 aria-label={`View video for ${slide.title}`}
+                onMouseEnter={() =>
+                  setCustomCursor((prev) => ({ ...prev, visible: true }))
+                }
+                onMouseLeave={() =>
+                  setCustomCursor((prev) => ({ ...prev, visible: false }))
+                }
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();

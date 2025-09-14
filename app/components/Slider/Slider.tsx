@@ -21,8 +21,15 @@ interface SliderImage {
     | "normal";
 }
 
-interface SliderProps {
+interface SliderSlide {
+  id: number;
   images: SliderImage[];
+  title?: string;
+  description?: string;
+}
+
+interface SliderProps {
+  slides: SliderSlide[];
   backgroundImage: string;
   autoPlay?: boolean;
   autoPlayInterval?: number;
@@ -31,10 +38,10 @@ interface SliderProps {
 }
 
 const Slider: React.FC<SliderProps> = ({
-  images,
+  slides,
   backgroundImage,
   autoPlay = true,
-  autoPlayInterval = 5000,
+  autoPlayInterval = 8800,
   showDots = true,
   showArrows = true,
 }) => {
@@ -43,14 +50,14 @@ const Slider: React.FC<SliderProps> = ({
 
   // Auto-play functionality
   useEffect(() => {
-    if (!autoPlay || images.length <= 1) return;
+    if (!autoPlay || slides.length <= 1) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, images.length]);
+  }, [autoPlay, autoPlayInterval, slides.length]);
 
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return;
@@ -60,21 +67,21 @@ const Slider: React.FC<SliderProps> = ({
 
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 300);
+    }, 1200);
   };
 
   const goToPrevious = () => {
-    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    const newIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
     goToSlide(newIndex);
   };
 
   const goToNext = () => {
-    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
     goToSlide(newIndex);
   };
 
-  if (!images || images.length === 0) {
-    return <div className="slider-error">No images provided</div>;
+  if (!slides || slides.length === 0) {
+    return <div className="slider-error">No slides provided</div>;
   }
 
   return (
@@ -92,29 +99,40 @@ const Slider: React.FC<SliderProps> = ({
 
       {/* Slider Container */}
       <div className="slider-container">
-        {images.map((image, index) => (
+        {slides.map((slide, index) => (
           <div
-            key={image.id}
+            key={slide.id}
             className={`slider-slide ${index === currentIndex ? "active" : ""}`}
-            style={{
-              transform: `translateX(${(index - currentIndex) * 100}%)`,
-            }}
           >
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="slider-overlay-image"
-              style={{
-                opacity: image.opacity || 0.7,
-                mixBlendMode: image.blendMode || "multiply",
-              }}
-              priority={index === 0}
-            />
+            {/* Three stacked images */}
+            <div
+              className="slider-images-stack"
+              key={`${slide.id}-${currentIndex}`}
+            >
+              {slide.images.slice(0, 3).map((image, imgIndex) => (
+                <div
+                  key={`${slide.id}-${image.id}-${currentIndex}`}
+                  className="slider-image-layer"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="slider-overlay-image"
+                    style={{
+                      opacity: image.opacity || 0.7,
+                      mixBlendMode: image.blendMode || "multiply",
+                      zIndex: imgIndex + 1,
+                    }}
+                    priority={index === 0 && imgIndex === 0}
+                  />
+                </div>
+              ))}
+            </div>
             <div className="slider-content">
-              {image.title && <h2 className="slider-title">{image.title}</h2>}
-              {image.description && (
-                <p className="slider-description">{image.description}</p>
+              {slide.title && <h2 className="slider-title">{slide.title}</h2>}
+              {slide.description && (
+                <p className="slider-description">{slide.description}</p>
               )}
             </div>
           </div>
@@ -122,9 +140,10 @@ const Slider: React.FC<SliderProps> = ({
       </div>
 
       {/* Navigation Arrows */}
-      {showArrows && images.length > 1 && (
+      {showArrows && slides.length > 1 && (
         <>
           <button
+            type="button"
             className="slider-arrow slider-arrow-left"
             onClick={goToPrevious}
             aria-label="Previous slide"
@@ -140,6 +159,7 @@ const Slider: React.FC<SliderProps> = ({
             </svg>
           </button>
           <button
+            type="button"
             className="slider-arrow slider-arrow-right"
             onClick={goToNext}
             aria-label="Next slide"
@@ -158,11 +178,12 @@ const Slider: React.FC<SliderProps> = ({
       )}
 
       {/* Dots Navigation */}
-      {showDots && images.length > 1 && (
+      {showDots && slides.length > 1 && (
         <div className="slider-dots">
-          {images.map((_, index) => (
+          {slides.map((_, index) => (
             <button
               key={index}
+              type="button"
               className={`slider-dot ${index === currentIndex ? "active" : ""}`}
               onClick={() => goToSlide(index)}
               aria-label={`Go to slide ${index + 1}`}

@@ -34,10 +34,16 @@ export default function RichMindPage() {
             text: "Simultaneously with the redefinition of the visual identity, the RichMind Holding website was completely redesigned. The new version of the site was built on a simple, transparent, and inspiring user experience so that colleagues, investors, and audiences could easily familiarize themselves with the brand's services and projects. The minimal and modern design of the site was based on the brand's new colors and typography. This design not only paid attention to aesthetics but also prioritized quick and easy access to key information. One of the new features of the website was the 'Projects Dashboard' section, which provided the ability to browse the latest activities and reports of RichMind Holding. This section was designed with the goal of increasing transparency and interaction, giving visitors a clear view of the scope of the holding's activities. The new website is now not just an information tool, but an interactive platform for showcasing the power, scope, and forward-thinking vision of RichMind Holding.",
           },
         ]}
+        images={[
+          "/images/carsel2-01-01.webp",
+          "/images/MTG.RICHMINDSITEBANNERS.V1.01.00.1404.06-03.webp",
+          "/images/carsel-02.webp",
+        ]}
+        layout="four-row"
       />
 
       <Richvid
-        videoSrc="/videos/RVA.Characters.V1.0.01.1404.webm"
+        videoSrc="/videos/Richmind.Corporate video.V1.0.02.1404.02_2.webm"
         title="RichMind in Action"
         description="Discover how RichMind is revolutionizing the industry with innovative solutions and cutting-edge technology."
         poster="/images/MTG.RICHMINDSITEBANNERS.V1.01.00.1404.06-02.webp"

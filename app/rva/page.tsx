@@ -18,7 +18,7 @@ export default function RvaPage() {
     },
     {
       id: 2,
-      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-02.webp",
+      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-03.webp",
       alt: "Digital Marketing",
       title: "Exclusive Videos and Visual Content",
       description:
@@ -26,7 +26,7 @@ export default function RvaPage() {
     },
     {
       id: 3,
-      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-03.webp",
+      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-06.webp",
       alt: "Capital Address Group",
       title: "Dedicated Website",
       description:
@@ -34,7 +34,7 @@ export default function RvaPage() {
     },
     {
       id: 4,
-      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-04.webp",
+      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-01.webp",
       alt: "Asar Sazan Properties",
       title: "Dedicated AI Assistant",
       description:
@@ -42,7 +42,7 @@ export default function RvaPage() {
     },
     {
       id: 5,
-      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-06.webp",
+      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-08.webp",
       alt: "RichMind Holding",
       title: "Social Networks",
       description:
@@ -50,11 +50,19 @@ export default function RvaPage() {
     },
     {
       id: 6,
-      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-08.webp",
+      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-02.webp",
       alt: "HighEnd Restaurant",
       title: "Last but not least",
       description:
         "Finally, Royal Virtual Assets has entered the field with the vision of becoming a reliable reference for digital asset investors and users. Our mission is not merely to create a platform, but to design a sustainable future for the digital world—a future where trust, transparency, and innovation take precedence. Positive feedback from audiences showed that Royal Virtual Assets videos were able to build a strong and professional brand image. These feedbacks taught us that investing in content is not an expense, but a sustainable asset for the brand. Finally, the visual design of the website is aligned with the brand identity of videos and social networks. Colors, fonts, and images were chosen in such a way as to convey a sense of unity and professionalism to the user.",
+    },
+    {
+      id: 7,
+      src: "/images/MTG.sitebanner.insidepages.v1.01.00.1404.06.16-04.webp",
+      alt: "The Future of Trading & Digital Currencies",
+      title: "By MTG",
+      description:
+        "Discover the future of digital assets with Royal Virtual Assets. We're pioneering new technologies and methodologies that are reshaping how we think about virtual economies, blockchain integration, and digital asset management. Our comprehensive platform offers cutting-edge solutions for businesses looking to enter the digital asset space.",
     },
   ];
 
@@ -94,6 +102,12 @@ export default function RvaPage() {
       src: "/videos/RVA.Tokenize.V1.0.02.1404.04.webm",
       poster: slides[5].src,
       title: slides[5].title,
+    },
+    {
+      id: 7,
+      src: "/videos/RVA.General.V1.0.01.1404.02_3.webm",
+      poster: slides[6].src,
+      title: slides[6].title,
     },
   ];
 
@@ -137,7 +151,7 @@ export default function RvaPage() {
       <Rvavid
         title="Royal Virtual Assets"
         // subtitle="Innovation in Digital Assets"
-        description="Discover the future of digital assets with Royal Virtual Assets. We're pioneering new technologies and methodologies that are reshaping how we think about virtual economies, blockchain integration, and digital asset management. Our comprehensive platform offers cutting-edge solutions for businesses looking to enter the digital asset space."
+        description=""
         slides={slides}
         // button={{
         //   text: "Explore Our Platform",

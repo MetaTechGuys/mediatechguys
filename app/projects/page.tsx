@@ -1,68 +1,91 @@
 import Slider from "../components/Slider/Slider";
 
 export default function Projects() {
-  const sliderImages = [
+  // Consistent layers for all slides
+  const consistentBackground =
+    "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-19.webp";
+  const consistentSecondLayer = {
+    id: 99, // High ID to avoid conflicts
+    src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-21.webp",
+    alt: "Consistent Second Layer",
+    opacity: 1,
+    blendMode: "normal" as const, // Default blend mode that does nothing
+  };
+
+  const sliderSlides = [
     {
       id: 1,
-      src: "/images/MTG-02.webp",
-      alt: "Royal Virtual Assets",
-      title: "Royal Virtual Assets",
-      description: "Future of Digital Assets",
-      opacity: 0.6,
-      blendMode: "multiply" as const,
+      title: "",
+      description: "",
+      images: [
+        {
+          id: 1,
+          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-20.webp",
+          alt: "Royal Virtual Assets Main",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+        consistentSecondLayer, // Same for all slides
+        {
+          id: 3,
+          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-22.webp",
+          alt: "Royal Virtual Assets Accent",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+      ],
     },
     {
       id: 2,
-      src: "/images/MTG-03.webp",
-      alt: "Digital Marketing",
-      title: "Digital Marketing Excellence",
-      description: "Start your Digital Marketing journey with us!",
-      opacity: 0.5,
-      blendMode: "overlay" as const,
+      title: "",
+      description: "",
+      images: [
+        {
+          id: 4,
+          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-20.webp",
+          alt: "Capital Address Group Main",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+        consistentSecondLayer, // Same for all slides
+        {
+          id: 6,
+          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-22.webp",
+          alt: "Capital Address Group Accent",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+      ],
     },
     {
       id: 3,
-      src: "/images/MTG-04.webp",
-      alt: "Capital Address Group",
-      title: "Capital Address Group",
-      description: "Future of Economy",
-      opacity: 0.7,
-      blendMode: "soft-light" as const,
-    },
-    {
-      id: 4,
-      src: "/images/MTG-05.webp",
-      alt: "Asar Sazan Properties",
-      title: "Asar Sazan Properties",
-      description: "Future of Architecture",
-      opacity: 0.6,
-      blendMode: "color-burn" as const,
-    },
-    {
-      id: 5,
-      src: "/images/MTG-07.webp",
-      alt: "RichMind Holding",
-      title: "RichMind Holding",
-      description: "Future of Business",
-      opacity: 0.5,
-      blendMode: "screen" as const,
-    },
-    {
-      id: 6,
-      src: "/images/MTG-08.webp",
-      alt: "HighEnd Restaurant",
-      title: "HighEnd Restaurant",
-      description: "A Delicious Memory",
-      opacity: 0.6,
-      blendMode: "hard-light" as const,
+      title: "",
+      description: "",
+      images: [
+        {
+          id: 7,
+          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-20.webp",
+          alt: "RichMind Holding Main",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+        consistentSecondLayer, // Same for all slides
+        {
+          id: 9,
+          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-22.webp",
+          alt: "RichMind Holding Accent",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+      ],
     },
   ];
 
   return (
     <div>
       <Slider
-        images={sliderImages}
-        backgroundImage="/images/MTG-03.webp"
+        slides={sliderSlides}
+        backgroundImage={consistentBackground}
         autoPlay={true}
         autoPlayInterval={4000}
         showDots={true}

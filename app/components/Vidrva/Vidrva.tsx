@@ -28,6 +28,11 @@ const Vidrva: React.FC<VidrvaProps> = ({
   const [isLoaded, setIsLoaded] = useState<boolean[]>(() =>
     Array(videos.length).fill(false)
   );
+  const [customCursor, setCustomCursor] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+  });
 
   useEffect(() => {
     // Pause all other videos when activeIndex changes
@@ -68,6 +73,34 @@ const Vidrva: React.FC<VidrvaProps> = ({
     };
   }, [onVideoChange, videos.length]);
 
+  // Mouse tracking for custom cursor
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (customCursor.visible) {
+        setCustomCursor((prev) => ({
+          ...prev,
+          x: e.clientX,
+          y: e.clientY,
+        }));
+      }
+    };
+
+    if (customCursor.visible) {
+      document.addEventListener("mousemove", handleMouseMove);
+      return () => document.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [customCursor.visible]);
+
+  // Hide cursor when mouse leaves window
+  useEffect(() => {
+    const handleMouseLeave = () => {
+      setCustomCursor((prev) => ({ ...prev, visible: false }));
+    };
+
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, []);
+
   const handlePlay = (idx: number) => {
     if (!isLoaded[idx]) {
       setIsLoaded((prev) => {
@@ -92,6 +125,16 @@ const Vidrva: React.FC<VidrvaProps> = ({
 
   return (
     <section id={sectionId} ref={sectionRef} className="vidrva">
+      {/* Custom Cursor */}
+      {customCursor.visible && (
+        <div
+          className="vidrva-custom-cursor"
+          style={{
+            left: customCursor.x,
+            top: customCursor.y,
+          }}
+        />
+      )}
       <div className="vidrva-container">
         {videos.map((v, idx) => (
           <div
@@ -111,6 +154,12 @@ const Vidrva: React.FC<VidrvaProps> = ({
                 preload="none"
                 poster={v.poster}
                 src={isLoaded[idx] ? v.src : undefined}
+                onMouseEnter={() =>
+                  setCustomCursor((prev) => ({ ...prev, visible: true }))
+                }
+                onMouseLeave={() =>
+                  setCustomCursor((prev) => ({ ...prev, visible: false }))
+                }
                 onPlay={() => {
                   // If user presses the native play button before we set src
                   if (!isLoaded[idx]) {
@@ -126,6 +175,12 @@ const Vidrva: React.FC<VidrvaProps> = ({
                   className="vidrva-playButton"
                   aria-label={`Play ${v.title ?? "video"}`}
                   onClick={() => handlePlay(idx)}
+                  onMouseEnter={() =>
+                    setCustomCursor((prev) => ({ ...prev, visible: true }))
+                  }
+                  onMouseLeave={() =>
+                    setCustomCursor((prev) => ({ ...prev, visible: false }))
+                  }
                 >
                   ▶
                 </button>

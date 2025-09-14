@@ -33,27 +33,52 @@
     left: 0;
     width: 100%;
     height: 100%;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.8s ease-in-out;
     opacity: 0;
-    transform: translateX(100%);
 
     &.active {
       opacity: 1;
-      transform: translateX(0);
+    }
+  }
+
+  &-images-stack {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-image-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(1.05);
+
+    // 1st layer (topmost) - animates with delay
+    &:nth-child(1) {
+      animation: fadeInDelayed 0.8s ease-in-out 0.4s both;
     }
 
-    // Previous slide
-    &:not(.active) {
-      &[style*="translateX(-100%)"] {
-        opacity: 0.3;
-      }
+    // 2nd layer (middle) - static, always visible
+    &:nth-child(2) {
+      opacity: 1;
+      transform: scale(1);
+      animation: none;
+    }
+
+    // 3rd layer (background) - animates with longer delay
+    &:nth-child(3) {
+      animation: fadeInDelayed 0.4s ease-in-out 0.8s both;
+      z-index: 8;
     }
   }
 
   &-overlay-image {
     object-fit: cover;
     object-position: center;
-    transition: opacity 0.3s ease;
+    transition: opacity 2s ease-in-out, transform 0.8s ease-in-out;
   }
 
   &-content {
@@ -61,12 +86,12 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.8) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      transparent 100%
-    );
+    // background: linear-gradient(
+    //   to top,
+    //   rgba(0, 0, 0, 0.8) 0%,
+    //   rgba(0, 0, 0, 0.4) 50%,
+    //   transparent 100%
+    // );
     padding: 4rem 2rem 2rem;
     color: white;
     z-index: 2;
@@ -115,24 +140,24 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(120, 120, 120, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 64px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
-    z-index: 3;
-    backdrop-filter: blur(10px);
+    z-index: 40;
+    backdrop-filter: blur(20px);
 
     &:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-50%) scale(1.1);
+      background: rgba(140, 140, 140, 0.4);
+      border-color: rgba(255, 255, 255, 0.8);
+      transform: translateY(-50%) scale(1.2);
     }
 
     &:active {
@@ -140,8 +165,8 @@
     }
 
     svg {
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
     }
 
     @media (max-width: 768px) {
@@ -178,7 +203,7 @@
     transform: translateX(-50%);
     display: flex;
     gap: 0.5rem;
-    z-index: 3;
+    z-index: 40;
 
     @media (max-width: 768px) {
       bottom: 1rem;
@@ -186,11 +211,11 @@
   }
 
   &-dot {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    background: transparent;
+    border: 2px solid rgba(200, 200, 200, 0.8);
+    background: gray;
     cursor: pointer;
     transition: all 0.3s ease;
 
@@ -200,8 +225,9 @@
     }
 
     &.active {
-      background: white;
-      border-color: white;
+      background: darkgray;
+      border-color: gray;
+      transform: scale(1.2);
     }
 
     @media (max-width: 768px) {
@@ -239,30 +265,26 @@
   }
 }
 
-// Accessibility improvements
-@media (prefers-reduced-motion: reduce) {
-  .slider-slide {
-    transition: none;
+// Keyframes for 3rd layer delayed fade-in
+@keyframes fadeInDelayed {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
   }
-
-  .slider-arrow,
-  .slider-dot {
-    transition: none;
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-// High contrast mode
-@media (prefers-contrast: high) {
-  .slider-arrow {
-    background: rgba(0, 0, 0, 0.8);
-    border-color: white;
+// Keyframes for immediate fade-in (1st layer)
+@keyframes fadeInImmediate {
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
   }
-
-  .slider-dot {
-    border-color: white;
-
-    &.active {
-      background: white;
-    }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

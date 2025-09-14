@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import "./richvid.scss";
 
 interface RichvidProps {
@@ -12,6 +13,7 @@ interface RichvidProps {
   loop?: boolean;
   controls?: boolean;
   titleColor?: string;
+  disableCustomCursor?: boolean;
 }
 
 const Richvid: React.FC<RichvidProps> = ({
@@ -24,9 +26,57 @@ const Richvid: React.FC<RichvidProps> = ({
   loop = false,
   controls = true,
   titleColor,
+  disableCustomCursor = false,
 }) => {
+  const [customCursor, setCustomCursor] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+  });
+
+  // Mouse tracking for custom cursor (only if not disabled)
+  useEffect(() => {
+    if (disableCustomCursor) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (customCursor.visible) {
+        setCustomCursor((prev) => ({
+          ...prev,
+          x: e.clientX,
+          y: e.clientY,
+        }));
+      }
+    };
+
+    if (customCursor.visible) {
+      document.addEventListener("mousemove", handleMouseMove);
+      return () => document.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [customCursor.visible, disableCustomCursor]);
+
+  // Hide cursor when mouse leaves window (only if not disabled)
+  useEffect(() => {
+    if (disableCustomCursor) return;
+
+    const handleMouseLeave = () => {
+      setCustomCursor((prev) => ({ ...prev, visible: false }));
+    };
+
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, [disableCustomCursor]);
   return (
     <section className="richvid">
+      {/* Custom Cursor */}
+      {!disableCustomCursor && customCursor.visible && (
+        <div
+          className="richvid-custom-cursor"
+          style={{
+            left: customCursor.x,
+            top: customCursor.y,
+          }}
+        />
+      )}
       <div className="richvid-container">
         {(title || description) && (
           <div className="richvid-header">
@@ -46,7 +96,9 @@ const Richvid: React.FC<RichvidProps> = ({
 
         <div className="richvid-video-wrapper">
           <video
-            className="richvid-video"
+            className={`richvid-video ${
+              disableCustomCursor ? "richvid-video--default-cursor" : ""
+            }`}
             src={videoSrc}
             poster={poster}
             autoPlay={autoplay}
@@ -55,6 +107,14 @@ const Richvid: React.FC<RichvidProps> = ({
             controls={controls}
             playsInline
             preload="metadata"
+            onMouseEnter={() =>
+              !disableCustomCursor &&
+              setCustomCursor((prev) => ({ ...prev, visible: true }))
+            }
+            onMouseLeave={() =>
+              !disableCustomCursor &&
+              setCustomCursor((prev) => ({ ...prev, visible: false }))
+            }
           >
             Your browser does not support the video tag.
           </video>

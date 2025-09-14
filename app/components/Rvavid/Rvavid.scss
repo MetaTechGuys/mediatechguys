@@ -1,11 +1,36 @@
 .rvavid {
   /* Stacked layout for small screens */
-  
+
   min-height: 100vh;
   //   padding: 4rem 0;
   background: transparent !important;
   border-bottom: 1px solid #646464;
   // overscroll-behavior: contain;
+
+  // Custom cursor styles
+  &-custom-cursor {
+    position: fixed;
+    width: 88px;
+    height: 88px;
+    // background-color: #1a1a1a;
+    // border-radius: 100%;
+    background-image: url("/images/Group (2).webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+    mix-blend-mode: difference;
+    // filter: grayscale(1) invert(1);
+
+    // Hide default cursor when custom cursor is visible
+    .rvavid-slide:hover &,
+    .rvavid-stackMedia:hover & {
+      cursor: none;
+    }
+  }
 
   // Scale animations for active/non-active slides
   @keyframes rvavid-scale-in {
@@ -50,6 +75,7 @@
   }
   &-stackMedia {
     position: relative;
+    cursor: none; // Hide default cursor
   }
   &-stackImageWrap {
     position: relative;
@@ -250,7 +276,7 @@
     border-radius: 16px;
     // overflow: hidden;
     // transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
+    cursor: none; // Hide default cursor
     // background: white;
     // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     --rv-rot: 0deg;

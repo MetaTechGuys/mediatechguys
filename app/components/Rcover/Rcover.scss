@@ -149,7 +149,7 @@
   width: 64px;
   height: 64px;
   border-radius: 8px;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
   font-size: 28px;
   cursor: pointer;
@@ -182,7 +182,14 @@
   .rcover__slide:nth-child(n) + .is-active ~ .rcover__top,
   .rcover__slide .is-active ~ .rcover__top,
   .rcover__slide .is-active + .rcover__top {
-    transform: translateY(-36%);
+    transform: translateY(-42%);
+    opacity: 1;
+  }
+
+  /* First slide only - position top image lower */
+  .rcover__slide:first-child .is-active ~ .rcover__top,
+  .rcover__slide:first-child .is-active + .rcover__top {
+    transform: translateY(0%);
     opacity: 1;
   }
   .rcover__imagePane {
@@ -191,8 +198,17 @@
     position: static;
   }
   .rcover__textPane {
-    padding: 12rem 2rem;
+    padding: 6rem 2rem;
     height: 100vh;
+  }
+  .rcover__nav {
+    bottom: auto;
+    top: 14px;
+  }
+  .rcover__navBtn {
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
   }
 }
 /* When slide becomes active, reveal text pane */
@@ -240,12 +256,12 @@
 /* Small phones */
 @media (max-width: 480px) {
   .rcover__title {
-    font-size: 24px;
+    font-size: 18px;
   }
   .rcover__subtitle {
-    font-size: 16px;
+    font-size: 14px;
   }
   .rcover__description {
-    font-size: 13px;
+    font-size: 10px;
   }
 }
