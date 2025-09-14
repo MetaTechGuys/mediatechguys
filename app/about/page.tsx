@@ -64,11 +64,11 @@ const team: AsliderItem[] = [
 
 export default function AboutPage() {
   return (
-    <div style={{ padding: "0" }}>
+    <div style={{ padding: " 2rem 0 0 0" }}>
       <Richvid
         videoSrc="/videos/we are mtg.webm"
         title="MediaTechGuys"
-        description="We build strategic, creative, and technology-driven experiences that grow brands."
+        description="We build strategic and creative experiences that grow brands."
         poster="/images/MTG-03.webp"
         autoplay={true}
         muted={true}

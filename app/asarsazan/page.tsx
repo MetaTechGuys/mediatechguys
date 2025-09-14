@@ -26,14 +26,21 @@ export default function AsarsazanPage() {
           ]}
           rightColumn={[
             {
-              subtitle: "Brand Book – A Roadmap for Organizational Identity",
-              text: "One of our most important deliverables for Asar Sazan was a comprehensive brand book. This document serves as a roadmap for the company’s visual and communication identity, providing a clear framework for the use of the logo, colors, typography, and other brand elements. The brand book was designed to support not only day-to-day communication needs (such as business cards and letterheads) but also larger initiatives like advertising campaigns and international presentations. Principles of sustainable architecture and Asar Sazan’s distinctive identity were directly reflected in the brand book. As a result, the document became more than just a graphic guide—it became a tool for conveying the company’s values and vision. Today, the brand book ensures that at every touchpoint—whether in digital media or in-person communications—the brand is presented consistently and professionally.",
-            },
-            {
               subtitle: "Content Production from Ongoing Projects",
               text: "The final part of our collaboration with Asar Sazan focused on content production from the company’s ongoing projects. The goal was to document and showcase the progress of projects and create transparency for clients and investors. Using visual reports, documentary-style videos, and detailed written content, we told the story of each project. This content was used not only on the website and social media but also in formal presentations and advertising campaigns. Our focus was to ensure that the content conveyed a sense of trust and assurance. Transparent presentation of construction phases helped clients invest with greater confidence and build stronger engagement with the projects. Ultimately, content production from ongoing projects became a key branding tool for Asar Sazan—one that positions the company as transparent, professional, and committed to quality.",
             },
+            {
+              subtitle: "Brand Book – A Roadmap for Organizational Identity",
+              text: "One of our most important deliverables for Asar Sazan was a comprehensive brand book. This document serves as a roadmap for the company’s visual and communication identity, providing a clear framework for the use of the logo, colors, typography, and other brand elements. The brand book was designed to support not only day-to-day communication needs (such as business cards and letterheads) but also larger initiatives like advertising campaigns and international presentations. Principles of sustainable architecture and Asar Sazan’s distinctive identity were directly reflected in the brand book. As a result, the document became more than just a graphic guide—it became a tool for conveying the company’s values and vision. Today, the brand book ensures that at every touchpoint—whether in digital media or in-person communications—the brand is presented consistently and professionally.",
+            },
+            
           ]}
+          images={[
+            "/images/1-01.webp",
+            "/images/1-02.webp",
+            "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-30.webp",
+          ]}
+          layout="four-row"
         />
       </div>
     </div>

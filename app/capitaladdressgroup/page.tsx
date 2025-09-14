@@ -67,6 +67,12 @@ export default function CapitalAddressGroupPage() {
               text: "The final part of the project was designing and developing the Capital Address Group website. It was built as the brand’s digital showcase to present all services, projects, and values in a clear and professional manner. The website’s structure was built on a simple and efficient user experience. From the homepage to the services section and analytical articles, everything was designed so users could access the information they need in the shortest time. The visual design was aligned with the brand identity; colors, typography, and imagery were selected to simultaneously communicate seriousness and innovation. This alignment made the website a strong touchpoint for the brand. In the end, the Capital Address Group website is not just an information tool; it is a platform for engagement, customer acquisition, and strengthening relationships with investors and partners.",
             },
           ]}
+          images={[
+            "/images/MTG.t-04.webp",
+            "/images/MTG.t-09.webp",
+            "/images/MTG.t-12.webp",
+          ]}
+          layout="four-row"
         />
       </div>
     </div>
