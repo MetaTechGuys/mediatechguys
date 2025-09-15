@@ -101,6 +101,28 @@ export default function Projects() {
         },
       ],
     },
+    {
+      id: 5,
+      title: "",
+      description: "",
+      images: [
+        {
+          id: 14,
+          src: "/images/MTG.sitebanner.v2.05.00.1404.06.23-17.webp",
+          alt: "RichMind Holding Main",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+        consistentSecondLayer, // Same for all slides
+        {
+          id: 16,
+          src: "/images/MTG.sitebanner.v2.05.00.1404.06.23-16 (1).webp",
+          alt: "RichMind Holding Accent",
+          opacity: 1,
+          blendMode: "normal" as const,
+        },
+      ],
+    },
   ];
 
   return (

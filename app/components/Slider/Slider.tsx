@@ -47,21 +47,31 @@ const Slider: React.FC<SliderProps> = ({
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   // Auto-play functionality
   useEffect(() => {
-    if (!autoPlay || slides.length <= 1) return;
+    if (!autoPlay || slides.length <= 1 || isPaused) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
-  }, [autoPlay, autoPlayInterval, slides.length]);
+  }, [autoPlay, autoPlayInterval, slides.length, isPaused]);
+
+  const pauseAutoplay = () => {
+    setIsPaused(true);
+    // Resume autoplay after 2 seconds
+    setTimeout(() => {
+      setIsPaused(false);
+    }, 2000);
+  };
 
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return;
 
+    pauseAutoplay(); // Pause autoplay when user navigates
     setIsTransitioning(true);
     setCurrentIndex(index);
 
@@ -71,11 +81,13 @@ const Slider: React.FC<SliderProps> = ({
   };
 
   const goToPrevious = () => {
+    pauseAutoplay(); // Pause autoplay when user navigates
     const newIndex = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
     goToSlide(newIndex);
   };
 
   const goToNext = () => {
+    pauseAutoplay(); // Pause autoplay when user navigates
     const newIndex = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
     goToSlide(newIndex);
   };
