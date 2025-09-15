@@ -42,7 +42,7 @@ export default function Projects() {
       images: [
         {
           id: 4,
-          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-20.webp",
+          src: "/images/MTG.sitebanner.v2.05.00.1404.06.23-16.webp",
           alt: "Capital Address Group Main",
           opacity: 1,
           blendMode: "normal" as const,
@@ -50,7 +50,7 @@ export default function Projects() {
         consistentSecondLayer, // Same for all slides
         {
           id: 6,
-          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-22.webp",
+          src: "/images/MTG.sitebanner.v2.05.00.1404.06.23-15.webp",
           alt: "Capital Address Group Accent",
           opacity: 1,
           blendMode: "normal" as const,
@@ -64,7 +64,7 @@ export default function Projects() {
       images: [
         {
           id: 7,
-          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-20.webp",
+          src: "/images/MTG.sitebanner.v2.05.00.1404.06.24-01 (1).webp",
           alt: "RichMind Holding Main",
           opacity: 1,
           blendMode: "normal" as const,
@@ -72,7 +72,7 @@ export default function Projects() {
         consistentSecondLayer, // Same for all slides
         {
           id: 9,
-          src: "/images/MTG.sitebanner.inside.v1.01.00.1404.06.17-2-14-22.webp",
+          src: "/images/MTG.sitebanner.v2.05.00.1404.06.24-02.webp",
           alt: "RichMind Holding Accent",
           opacity: 1,
           blendMode: "normal" as const,
