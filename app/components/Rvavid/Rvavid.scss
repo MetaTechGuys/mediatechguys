@@ -283,7 +283,7 @@
     transform: rotate(var(--rv-rot)) scale(1) translateX(0);
     will-change: transform;
     z-index: 1;
-    margin-top: -0.2rem;
+    margin-top: 0rem;
     pointer-events: auto;
 
     &:first-child {
@@ -307,7 +307,7 @@
       transform: translateX(40%);
       opacity: 0;
       transition: transform 800ms ease, opacity 400ms ease;
-      padding: 20px 0;
+      padding: 18px 0;
       > img {
         transform: rotate(80deg);
         transition: transform 800ms ease;
@@ -330,7 +330,7 @@
       pointer-events: auto;
 
       .rvavid-layer-bottom {
-        transform: translateX(18%);
+        transform: translateX(20%);
         opacity: 1;
         > img {
           transform: rotate(0deg);

@@ -5,16 +5,45 @@ import "./Aleft.scss";
 interface AleftProps {
   title: string;
   description: string;
-  imageSrc: string;
-  imageAlt: string;
+  mediaSrc: string;
+  mediaAlt: string;
+  mediaType?: "image" | "video";
 }
 
 const Aleft: React.FC<AleftProps> = ({
   title,
   description,
-  imageSrc,
-  imageAlt,
+  mediaSrc,
+  mediaAlt,
+  mediaType = "image",
 }) => {
+  const renderMedia = () => {
+    if (mediaType === "video") {
+      return (
+        <video
+          src={mediaSrc}
+          className="aleft__video"
+          muted
+          loop
+          playsInline
+          autoPlay
+          aria-label={mediaAlt}
+        />
+      );
+    }
+
+    return (
+      <Image
+        src={mediaSrc}
+        alt={mediaAlt}
+        className="aleft__img"
+        width={800}
+        height={600}
+        sizes="(max-width: 768px) 100vw, 600px"
+      />
+    );
+  };
+
   return (
     <div className="aleft">
       <div className="aleft__container">
@@ -23,16 +52,7 @@ const Aleft: React.FC<AleftProps> = ({
             <h2 className="aleft__title">{title}</h2>
             <p className="aleft__description">{description}</p>
           </div>
-          <div className="aleft__image">
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              className="aleft__img"
-              width={800}
-              height={600}
-              sizes="(max-width: 768px) 100vw, 600px"
-            />
-          </div>
+          <div className="aleft__media">{renderMedia()}</div>
         </div>
       </div>
     </div>
