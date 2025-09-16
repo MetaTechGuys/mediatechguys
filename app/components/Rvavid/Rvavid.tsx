@@ -11,6 +11,7 @@ interface RvavidSlide {
   title: string;
   description?: string;
   secondarySrc?: string;
+  backgroundImage?: string;
 }
 
 interface RvavidProps {
@@ -309,7 +310,10 @@ const Rvavid: React.FC<RvavidProps> = ({
                 <div className="rvavid-layers">
                   <div className="rvavid-layer rvavid-layer-bottom">
                     <Image
-                      src="/images/takt-studios-brandeed-content-agency-services-768x768.webp"
+                      src={
+                        slide.backgroundImage ||
+                        "/images/takt-studios-brandeed-content-agency-services-768x768.webp"
+                      }
                       alt={slide.alt}
                       width={320}
                       height={320}
