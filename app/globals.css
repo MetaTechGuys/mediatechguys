@@ -394,7 +394,6 @@ summary {
   text-align-last: left;
   word-spacing: normal;
   letter-spacing: normal;
-  line-height: 1.5;
 }
 
 /* Ensure proper spacing for justified text */
@@ -402,8 +401,6 @@ p {
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
-  word-spacing: 0.1em;
-  letter-spacing: 0.02em;
 }
 
 /* Special handling for headings - keep them left-aligned but justified */
@@ -418,8 +415,6 @@ h8 {
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
-  word-spacing: 0.05em;
-  letter-spacing: 0.01em;
 }
 
 /* Ensure spans and inline elements maintain justification */
@@ -444,8 +439,6 @@ li {
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
-  word-spacing: 0.1em;
-  letter-spacing: 0.02em;
 }
 
 /* Handle table cells */
@@ -454,8 +447,6 @@ th {
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
-  word-spacing: 0.1em;
-  letter-spacing: 0.02em;
 }
 
 /* Handle form elements */
@@ -467,8 +458,6 @@ select {
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
-  word-spacing: 0.05em;
-  letter-spacing: 0.01em;
 }
 
 /* Ensure links maintain justification */
@@ -485,8 +474,6 @@ pre {
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
-  word-spacing: 0.1em;
-  letter-spacing: 0.02em;
 }
 
 /* Handle code elements */
@@ -495,6 +482,4 @@ kbd,
 samp {
   text-align: justify;
   text-justify: inter-word;
-  word-spacing: 0.05em;
-  letter-spacing: 0.01em;
 }
