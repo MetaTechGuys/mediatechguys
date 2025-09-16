@@ -338,3 +338,163 @@ h7,
 h8 {
   font-family: "Avita", Arial, Helvetica, sans-serif;
 }
+
+/* Global text alignment and justification */
+/* Apply text justification to all text elements */
+p,
+span,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8,
+li,
+td,
+th,
+label,
+button,
+a,
+strong,
+em,
+b,
+i,
+u,
+mark,
+small,
+sub,
+sup,
+blockquote,
+pre,
+code,
+kbd,
+samp,
+var,
+cite,
+dfn,
+abbr,
+time,
+address,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section,
+summary {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: normal;
+  letter-spacing: normal;
+  line-height: 1.5;
+}
+
+/* Ensure proper spacing for justified text */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0.1em;
+  letter-spacing: 0.02em;
+}
+
+/* Special handling for headings - keep them left-aligned but justified */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7,
+h8 {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0.05em;
+  letter-spacing: 0.01em;
+}
+
+/* Ensure spans and inline elements maintain justification */
+span,
+strong,
+em,
+b,
+i,
+u,
+mark,
+small,
+sub,
+sup {
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: inherit;
+  letter-spacing: inherit;
+}
+
+/* Handle list items */
+li {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0.1em;
+  letter-spacing: 0.02em;
+}
+
+/* Handle table cells */
+td,
+th {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0.1em;
+  letter-spacing: 0.02em;
+}
+
+/* Handle form elements */
+label,
+button,
+input,
+textarea,
+select {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0.05em;
+  letter-spacing: 0.01em;
+}
+
+/* Ensure links maintain justification */
+a {
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: inherit;
+  letter-spacing: inherit;
+}
+
+/* Handle blockquotes and preformatted text */
+blockquote,
+pre {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: left;
+  word-spacing: 0.1em;
+  letter-spacing: 0.02em;
+}
+
+/* Handle code elements */
+code,
+kbd,
+samp {
+  text-align: justify;
+  text-justify: inter-word;
+  word-spacing: 0.05em;
+  letter-spacing: 0.01em;
+}
