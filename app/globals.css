@@ -341,22 +341,13 @@ h8 {
 
 /* Global text alignment and justification */
 /* Apply text justification to all text elements */
-p,
+
 span,
 div,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-h7,
-h8,
 li,
 td,
 th,
 label,
-button,
 a,
 strong,
 em,
@@ -390,96 +381,8 @@ nav,
 section,
 summary {
   text-align: justify;
-  text-justify: inter-word;
-  text-align-last: left;
-  word-spacing: normal;
-  letter-spacing: normal;
-}
-
-/* Ensure proper spacing for justified text */
-p {
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: left;
-}
-
-/* Special handling for headings - keep them left-aligned but justified */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-h7,
-h8 {
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: left;
-}
-
-/* Ensure spans and inline elements maintain justification */
-span,
-strong,
-em,
-b,
-i,
-u,
-mark,
-small,
-sub,
-sup {
-  text-align: justify;
-  text-justify: inter-word;
-  word-spacing: inherit;
-  letter-spacing: inherit;
-}
-
-/* Handle list items */
-li {
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: left;
-}
-
-/* Handle table cells */
-td,
-th {
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: left;
-}
-
-/* Handle form elements */
-label,
-button,
-input,
-textarea,
-select {
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: left;
-}
-
-/* Ensure links maintain justification */
-a {
-  text-align: justify;
-  text-justify: inter-word;
-  word-spacing: inherit;
-  letter-spacing: inherit;
-}
-
-/* Handle blockquotes and preformatted text */
-blockquote,
-pre {
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: left;
-}
-
-/* Handle code elements */
-code,
-kbd,
-samp {
-  text-align: justify;
-  text-justify: inter-word;
+  /* text-justify: inter-word; */
+  /* text-align-last: center; */
+  /* word-spacing: normal; */
+  /* letter-spacing: normal; */
 }
