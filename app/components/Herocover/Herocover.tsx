@@ -32,6 +32,7 @@ const Herocover = ({
           height={intrinsicHeight}
           sizes="100vw"
           priority={priority}
+          fetchPriority="high"
           style={{ width: "100vw", height: "auto" }}
         />
       </div>
