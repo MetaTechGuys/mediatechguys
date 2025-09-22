@@ -95,7 +95,7 @@ export default function AboutPage() {
         mediaType="image"
       />
 
-      <Aleft
+      {/* <Aleft
         title="CEO Introduction - Dr. Aram Mousavi"
         description="Dr. Aram Mousavi, founder and CEO of MTG Group, is a recognized figure in management and business development in Iran, Europe, and the Middle East. Drawing on his academic knowledge and extensive experience in strategy, innovation, and future studies, he has transformed MTG into a reference organization and leader in the field of marketing and branding. With a systematic and international perspective, Dr. Aram Mousavi has elevated MTG beyond the framework of a marketing agency, transforming it into a platform for interdisciplinary expertise synergy, including data-driven marketing, brand management, organizational creativity, and emerging technologies. The combination of academic knowledge and real market experience has given his decision-making both scientific and practical dimensions, laying the groundwork for sustainable and competitive growth for MTG's clients. From his perspective, brands will only endure when they can create real value and distinctive experiences for customers, in addition to their market presence. Under Dr. Aram Mousavi's leadership, MTG's mission is to become a strategic partner for brands on their path to growth and excellence—a path that leads not only to today's profitability but to building a bright and lasting future for clients."
         mediaSrc="/images/Generated (3).webp"
@@ -109,7 +109,7 @@ export default function AboutPage() {
         mediaSrc="/images/Generated (2).webp"
         mediaAlt="Our expertise and skills"
         mediaType="image"
-      />
+      /> */}
 
       <Aslider items={team} visible={9} />
     </div>
