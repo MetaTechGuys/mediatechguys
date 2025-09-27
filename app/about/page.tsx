@@ -111,7 +111,7 @@ export default function AboutPage() {
         mediaType="image"
       /> */}
 
-      <Aslider items={team} visible={9} />
+      {/* <Aslider items={team} visible={9} /> */}
     </div>
   );
 }
